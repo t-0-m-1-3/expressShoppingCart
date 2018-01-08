@@ -7,41 +7,42 @@
 
 
 const express = require('express');
-const router = express.Router();
+const ordersRouter = express.Router();
+const ordersController = require('../controllers/orders-controller');
+
 
 //root route
-router.get('/', (req, res, next) => {
+ordersRouter.get('/', (req, res ) => {
       res.status(200).json({
-          message: 'Handling Get Requests to /orders'});
+          message: 'handling get requests to /orders'});
 });
 
 //post
-router.post('/', (req, res, next) => {
-    const order = {
-          productId: req.body.productId,
+ordersRouter.post('/', (req, res ) => {
+    const orders = {
+          productid: req.body.productid,
           quantity: req.body.quantity
     };
       res.status(201).json({
-          message: 'Handling POST Requests to /orders',
+          message: 'handling post requests to /orders',
           order: order 
       });
 });
 
-router.get('/:orderId', (req, res, next) => {
+ordersRouter.get('/:orderid', (req, res ) => {
       res.status(200).json({
-          message: 'Order details to /:orderId',
-          orderId: req.params.orderId
+          message: 'order details to /:orderid',
+          orderid: req.params.orderid
 
 });
 });
 
-router.delete('/:orderId', (req, res, next) => {
+ordersRouter.delete('/:orderid', (req, res ) => {
       res.status(200).json({
-          message: 'Order deleted /:orderId',
-          orderId: req.params.orderId
+          message: 'order deleted /:orderid',
+          orderid: req.params.orderid
 });
 });
 
 
-module.exports = router;
-
+module.exports = ordersRouter;

@@ -9,7 +9,7 @@ const db = require('../db/config');
 const Order = {};
 // query the db for the orders
 Order.findAll= () => {
-      return db.query('SELECT * FROM shoppingcart ORDER BY id DESC');
+      return db.all('SELECT * FROM shoppingcart ORDER BY id DESC');
 };
 //Query the db for a specific id
 Order.findById = (id) => {
@@ -28,7 +28,7 @@ Order.update = (orders, id) => {
       [orders.productId, orders.quantity])
 };
 // query the db and create an order
-Order.create = orders => {
+Order.create = ( orders ) => {
     return db.one(
     `
     INSERT INTO shoppingcart
@@ -38,7 +38,7 @@ Order.create = orders => {
     [orders.productId, orders.quantity]);
 };
 // query the d\b and remove and order
-Orders.destroy = id => {
+Order.destroy = ( id ) => {
       return db.none(
       `
       DELETE FROM shoppingcart

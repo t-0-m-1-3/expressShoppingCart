@@ -4,25 +4,24 @@
  *
  * Distributed under terms of the MIT license.
  */
-const Order = require('../models/orders');
+const Order = require('../models/order');
 const ordersController = {};
 
 //findAll()
-ordersController.index = (req,res_ => {
+ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
-           res.render('orders/index', {
+           res.render('/index', {
            message: 'ok',
            orders: orders})
            })
-})
 };
 //.show()
 ordersController.show = (req,res) => {
       Order.findById(req.params.id_)
             .then(orders => {
             res.render('orders/show',{
-            order: orders
+            orders: orders
             })
           }).catch(err => {
           res.status(400).json(err)
@@ -45,12 +44,12 @@ ordersController.update = (req,res) => {
         quantity: req.body.quantity },
                   req.params.id)
           .then(() => {
-            res.redirect(`orders/${req.params.id}`)})
-}.catch(err => {
+            res.redirect(`orders/${req.params.id}`)
+.catch(err => {
   res.status(400).json(err)})
-};
-//.new()
-ordersControllerj.create = (req,res) => {
+          })};
+// //.new()
+ordersController.create = (req,res) => {
   res.render('orders/new')
 };
 //.create()
@@ -60,16 +59,16 @@ ordersController.create = (req,res) => {
         quantity: req.body.quantity
         })
           .then(orders => {
-          res.redirect(`/orders/${orders.id}`)
-          .catch(err => {
-          res.status(400).json(err);
+            res.redirect(`/orders/${orders.id}`)
+          }).catch(err => {
+            res.status(400).json(err);
           });
 };
-//.destroy()
+// // //.destroy()
 ordersController.destroy = (req,res) => {
       Orders.destroy(req.params.id)
             .then(() => {
-            res.redirect('.orders')
+            res.redirect('/orders')
             })
             .catch(err => {
             res.status(400).json(err);
