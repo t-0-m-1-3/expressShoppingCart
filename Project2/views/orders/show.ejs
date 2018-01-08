@@ -1,0 +1,23 @@
+
+ <%#                                                    %>
+ <%# show.ejs                                            %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
+ <%#                                                    %>
+ <%# Distributed under terms of the MIT license.  %>
+ <%#                                                    %>
+<#% include ../../views/header.ejs %>
+
+<h1><%= orders.price %></h1>
+<p><%= orders.productId %></p>
+<p><%= orders.quantity %></p>
+
+<a href="/orders">Back to all orders</a>
+<a href="<%= `/orders/${orders.id}/edit` %>">
+  Edit orders.
+</a>
+
+<form action="<%= `/orders/${orders.id}?_method=DELETE` %>" method="POST">
+  <input type="submit" value="Delete" />
+</form>
+<#% include ../../views/footer.ejs %>
+

@@ -1,0 +1,28 @@
+
+ <%#                                                    %>
+ <%# new.ejs                                            %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
+ <%#                                                    %>
+ <%# Distributed under terms of the MIT license.  %>
+ <%#                                                    %>
+<#% include ../../views/header.ejs %>
+
+<h1>Create an order</h1>
+
+<form action="/orders" method="POST">
+  <label for="quantity">quantity</label>
+  <input id="quantity" type="text" name="quantity" />
+
+  <br />
+
+  <label for="productId">Product ID</label>
+  <input id="productId" type="text" name="productId" />
+
+  <br />
+
+  <input type="submit" value="Create the order!" />
+</form>
+
+<a href="/orders">Cancel</a>
+<#% include ../../views/footer.ejs %>
+

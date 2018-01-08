@@ -1,0 +1,28 @@
+
+ <%#                                                    %>
+ <%# edit.ejs                                            %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
+ <%#                                                    %>
+ <%# Distributed under terms of the MIT license.  %>
+ <%#                                                    %>
+<#% include ../../views/header.ejs %>
+
+<h1>Edit a order</h1>
+
+<form action="<%= `/orders/${order.id}?_method=PUT` %>" method="POST">
+  <label for="quantity">quantity</label>
+  <input id="quantity" type="text" name="quantity" value="<%= orders.quantity %>" />
+
+  <br />
+
+  <label for="productId">productId</label>
+  <input id="productId" type="text" name="productId" value="<%= orders.productId %>" />
+
+  <br />
+
+  <input type="submit" value="Save changes" />
+</form>
+
+<a href="<%= `/orders/${orders.id}` %>">Cancel</a>
+<#% include ../../views/footer.ejs %>
+
