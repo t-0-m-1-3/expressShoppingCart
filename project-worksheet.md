@@ -18,6 +18,13 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
+I plan to build a simple shopping cart that can be generalized to any
+small business. I want to start with a simple products page that'll push
+selected products into a cart on an orders page. 
+I plane to use the stripe API to simulate confirming purchases. 
+I have been looking at shopping cart tools and have been testing some
+with `npm` but haven't found anything satisfactory yet 
+
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
@@ -25,28 +32,52 @@ Include a full list of features that have been prioritized based on the `Time an
 ## MVP 
 
 Include the full list of features that will be part of your MVP 
+1. products page listing 2-3 products that can be sent to a cart
+2. cart page that allows the user to confirm the purchase,
+   CRUD the order inside the databse.
+3. orders will be stored inside a postgres db 
+4. Stripe API for purchases, PayPal as a backup, GooGle distance matrix
+   as another backup
+5. EJS templates for the pages, with rendered footer, header
 
 ## POST MVP
-
-Include the full list of features that you are considering for POST MVP
+1. larger array of products
+2. user can add products and pictures (like a yardsale site)
+3. AUTH, USERS table, ADMIN page with editing features, MarketBasket.sq,
+   Suggestions.ejs 
 
 ## Wireframes
 
 Include images of your wireframes. 
+[]()
+[]()
+[]()
+[]()
+[]()
+[]()
+[]()
+
 
 ## App Components
 
 ### Creating Items
-
+MVP: CREATE an Order containing the products selected
+PostMVP: CREATING new products from user uploads
 
 ### Deleting Items
-
+MVP: DELETING an ORDER
+postMVP: DELETING a product you've added
 
 ### Editing Items
-
+MVP: PATCHING the ORDER 
+PostMVP: PATCHING the products you've uploaded
+PostMVP: ADMIN can edit orders and products page
 
 ### Getting Items
-
+MVP: GETTING all the products
+MVP: GETTING all the orders
+PostMVP: GETTING all the orders for USER
+PostMVP: GETTING all the products you've added
 
 
 ## Functional Components
@@ -57,17 +88,46 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Component 1 | H | 10hrs| 12hrs | 12hrs |
+| express layout (MVC) 1 | H | 10hrs| 2hrs | -hrs |
+| order.js/ products.js   | H | 10hrs| 4hrs | --hrs |
+| shoppingCart.db| H | 10hrs| 3hrs | -hrs |
+| API: Stripe | H | 10hrs| 2hrs | --hrs |
+| CSS Page | M | 30hrs| --hrs | --hrs |
+| AUTH  | M | 10hrs| --hrs | --hrs |
+| login Page | M | 10hrs| --hrs | --hrs |
+| MarketBasket.sql | L | 10hrs| --hrs | --hrs |
+| productUpload  | L | 10hrs| --hrs | --hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string | 
+| `app.get('/')` | Will handle grabbing the root and render the index view | 
+| `app.get('*')`| Will handle the error routes and render a 404 | 
+| `Order.findAll()` | This will reach out and GET all the orders | 
+| `Order.findById()` | This will reach out and query for a single order | 
+| `Order.update` | Will perform a PATCH on an order | 
+| `Order.create()` | This will CREATE an order in the db | 
+| `Order.destroy()` | This will DELETE and order | 
+| `Product.findAll()` | This will reach out and GET all the orders | 
+| `Product.findById()` | This will reach out and query for a single order | 
+| `Product.update` | Will perform a PATCH on an order | 
+| `Product.create()` | This will CREATE an order in the db | 
+| `Product.destroy()` | This will DELETE and order |  
+| `Stripe.customer.create()` | Will CREATE the customer and charge the
+CC using the `stripe` package in `npm` | 
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
+1. express 
+2. morgan
+3. path
+4. body-parser or muter
+5. method-override
+6. pg-promise
+7. nodemon
+8. stripe 
 
 ## Code Snippet
 
