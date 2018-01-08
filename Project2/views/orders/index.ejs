@@ -4,8 +4,17 @@
  <%#                                                    %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
-<#% include ../../views/header.ejs %>
+<#% include ../../views/partials/header.ejs %>
 <body>
+<a href="<%= `orders/${orders.id}` %>">
+
+<p><%= message %></p>
+<p><%= currentPage </p>
+
+<p><%= documentTitle %></p>
+<p><%= %></p>
+
+
 <h1>Orders</h1>  
 <a href="/orders/new">Place an Order</a>
 <a href="orders/update">Update an Order</a>
@@ -26,5 +35,5 @@ I don't know if this will work
 <%}) %>
 
 </html>
-<#% include ../../views/footer.ejs %>
+<#% include ../../views/partials/footer.ejs %>
 

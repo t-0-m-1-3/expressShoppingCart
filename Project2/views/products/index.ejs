@@ -1,0 +1,39 @@
+ <%#                                                    %>
+ <%# index.ejs                                            %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
+ <%#                                                    %>
+ <%# Distributed under terms of the MIT license.  %>
+ <%#                                                    %>
+<#% include ../../views/partials/header.ejs %>
+<body>
+  <a href="<%= `products/${products.id}` %>">
+
+        <p><%= message %></p>
+        <p><%= currentPage </p>
+
+        <p><%= documentTitle %></p>
+
+
+  <h1>products</h1>  
+    /* <a href="/products/new">Sell an Old Thing</a> */
+    /* <a href="products/update">Change the things your selling</a> */
+
+        <% products.forEach(products => { %>
+  <div class="product">
+    <h4>
+        <a href="<%= `products/${products.id}` %>">
+        <%= products.quantity %>
+        </a>
+    </h4>
+
+    <p>
+      pre join? i dunno
+      <%# = products.description %>
+      I don't know if this will work
+    </p>
+  </div>
+<%}) %>
+
+</html>
+
+<#% include ../../views/partials/footer.ejs %>

@@ -28,6 +28,7 @@ with `npm` but haven't found anything satisfactory yet
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
+![Priority Matrix](https://www.dropbox.com/s/1tz8d9lni9b5qm8/Screenshot_SmartSelect_2018-01-08-15-09-22.jpg?dl=0)
 
 ## MVP 
 
@@ -49,35 +50,52 @@ Include the full list of features that will be part of your MVP
 ## Wireframes
 
 Include images of your wireframes. 
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
+[the first one](https://www.dropbox.com/s/gbtw3l4eml56up0/20180105_141848.jpg?dl=0)
+
+[ERdiagram](https://www.dropbox.com/s/785jp63482zks92/ERdiagram.md?dl=0)
+
+[routeDiagram](https://www.dropbox.com/s/zsn7cp1qa4y7kua/routeDiagram.md?dl=0)
+
+[another one](https://www.dropbox.com/s/k8h7mommz4bdypx/20180105_141851.jpg?dl=0)
+
+[another nother one](https://www.dropbox.com/s/2p5gtit3dxnfoes/20180105_165301.jpg?dl=0)
+
+[yeah well](https://www.dropbox.com/s/c0bcelxb8aszvg3/20180105_165304.jpg?dl=0)
+
+[i took a lot of pictures](https://www.dropbox.com/s/rzx0tkmkz0wqfnt/20180105_165307.jpg?dl=0)
+
+[and none of these are what I need](https://www.dropbox.com/s/ycn4m8k2rrorkf5/20180105_165317.jpg?dl=0)
+
+[the last one](https://www.dropbox.com/s/nxb58uy8hjqyhsw/20180108_095902.jpg?dl=0)
 
 
 ## App Components
 
 ### Creating Items
-MVP: CREATE an Order containing the products selected
-PostMVP: CREATING new products from user uploads
+ MVP: CREATE an Order containing the products selected
+
+ PostMVP: CREATING new products from user uploads
 
 ### Deleting Items
-MVP: DELETING an ORDER
-postMVP: DELETING a product you've added
+ MVP: DELETING an ORDER
+
+ PostMVP: DELETING a product you've added
 
 ### Editing Items
-MVP: PATCHING the ORDER 
-PostMVP: PATCHING the products you've uploaded
-PostMVP: ADMIN can edit orders and products page
+ MVP: PATCHING the ORDER 
+
+ PostMVP: PATCHING the products you've uploaded
+
+ PostMVP: ADMIN can edit orders and products page
 
 ### Getting Items
-MVP: GETTING all the products
-MVP: GETTING all the orders
-PostMVP: GETTING all the orders for USER
-PostMVP: GETTING all the products you've added
+ MVP: GETTING all the products
+
+ MVP: GETTING all the orders
+
+ PostMVP: GETTING all the orders for USER
+
+ PostMVP: GETTING all the products you've added
 
 
 ## Functional Components
@@ -88,14 +106,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| express layout (MVC) 1 | H | 10hrs| 2hrs | -hrs |
-| order.js/ products.js   | H | 10hrs| 4hrs | --hrs |
-| shoppingCart.db| H | 10hrs| 3hrs | -hrs |
+| express layout (MVC)  | H | 10hrs| 2hrs | -hrs |
+| `order.js/ products.js`   | H | 10hrs| 4hrs | --hrs |
+| `shoppingCart.db`| H | 10hrs| 3hrs | -hrs |
 | API: Stripe | H | 10hrs| 2hrs | --hrs |
 | CSS Page | M | 30hrs| --hrs | --hrs |
 | AUTH  | M | 10hrs| --hrs | --hrs |
 | login Page | M | 10hrs| --hrs | --hrs |
-| MarketBasket.sql | L | 10hrs| --hrs | --hrs |
+| `MarketBasket.sql` | L | 10hrs| --hrs | --hrs |
 | productUpload  | L | 10hrs| --hrs | --hrs |
 
 ## Helper Functions
@@ -115,8 +133,7 @@ Helper functions should be generic enought that they can be reused in other appl
 | `Product.update` | Will perform a PATCH on an order | 
 | `Product.create()` | This will CREATE an order in the db | 
 | `Product.destroy()` | This will DELETE and order |  
-| `Stripe.customer.create()` | Will CREATE the customer and charge the
-CC using the `stripe` package in `npm` | 
+| `Stripe.customer.create()` | Will CREATE the customer and charge the CC using the `stripe` package in `npm` | 
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
