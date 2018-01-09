@@ -35,10 +35,7 @@ app.use('/products', productsRouter);
 app.get('/', (req, res) => {
   res.send('Hey We\'re Live')
       res.render('index', {
-     message: 'success',
-     currentPage: 'home',
-     documentTitle: 'a store shopping cart',
-     subTitle: 'thanks for trusting your gift giving with us!'
+        message: 'Index page'
    });
 });
 

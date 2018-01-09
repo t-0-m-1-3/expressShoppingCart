@@ -13,9 +13,10 @@ const pgp = require('pg-promise')(options)
 function setDatabase() {
   if(process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     return pgp({
-      database:'shoppingCart',
+      database:'shoppingcart',
       port:5432,
-      host:'localhost'
+      host:'localhost',
+      password: 'password'
     });
   } else if (process.env.NODE_ENV === 'production') {
       return pgp(process.env.DATABASE_URL)

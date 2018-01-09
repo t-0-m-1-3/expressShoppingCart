@@ -6,15 +6,25 @@
  <%#                                                    %>
 <% include ../views/partials/header.ejs %>
 <body>
-    <a href="<%= `order/${orders.id}` %>"> 
 
-      <p><%= message %></p>
-      <p><%= currentPage %> </p>
+  <p> 
+      <%= message %>
+    <br>
+    
+      Hey Tom if you're reading this message above you that means this worked. so Kick it 
+  </p>
 
-      <p><%= documentTitle %></p>
+  <p>
+       You're currently on the:  
+        <%= currentPage %> Page 
+  </p>
+
+  <p>
+      <%= documentTitle %>
+  </p>
 
 
-    <h1>Orders</h1>  
+    <h4>Orders</h4>  
       <a href="/orders/new">Place an Order</a>
       <a href="orders/update">Update an Order</a>
 
@@ -22,7 +32,17 @@
       <div class="order">
     <h4>
         <a href="<%= `orders/${orders.id}` %>">
-  <#%  <%= orders.quantity %> %>
+  This is you're order ID:
+<br>
+    <%= orders.id %>
+<br>
+This is the Quantity
+<br>
+    <%= orders.quantity %>
+<br>
+This is a placeholder for the Products.Description join
+<br>
+    <%= orders.quantity %>
         </a>
     </h4>
 
@@ -30,7 +50,7 @@
     pre join? i dunno
     </br>
 
-    <%# = products.description %>
+    <%# products.description %>
 I don't know if this will work
     </p>
 

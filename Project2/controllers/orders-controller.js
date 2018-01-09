@@ -11,17 +11,31 @@ const ordersController = {};
 ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
-           res.render('/index', {
-           message: 'ok',
+           res.render('index', {
+           message: 'success',
+           currentPage: 'home',
+           documentTitle: 'a store shopping cart',
+           subTitle: 'thanks for trusting your gift giving with us!',
            orders: orders})
            })
+.catch(err => {
+          res.status(400).json(err)
+          })
 };
+
 //.show()
 ordersController.show = (req,res) => {
-      Order.findById(req.params.id_)
+  console.log(req.params)
+  console.log('about to go into Order.findById() ')
+      Order.findById(req.params.id)
             .then(orders => {
+              console.log('inside show controller vars next: ', req.params.id, req.params, orders)
             res.render('orders/show',{
-            orders: orders
+            message: 'success',
+            currentPage: 'home',
+            documentTitle: 'a store shopping cart',
+            subTitle: 'thanks for trusting your gift giving with us!',
+           orders: orders
             })
           }).catch(err => {
           res.status(400).json(err)
@@ -33,9 +47,10 @@ ordersController.edit = (req,res) => {
            .then(orders => {
            res.render('orders/edit', {
            orders: orders
-           })
-           }).catch(err => {
-           res.status(400).json(err)})
+          })
+          }).catch(err => {
+          res.status(400).json(err)
+          })
 };
 //.update()
 ordersController.update = (req,res) => {
@@ -50,8 +65,8 @@ ordersController.update = (req,res) => {
           })};
 // //.new()
 ordersController.create = (req,res) => {
-  res.render('orders/new')
-};
+   res.render('orders/new')
+ };
 //.create()
 ordersController.create = (req,res) => {
       Order.create({
