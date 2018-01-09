@@ -107,14 +107,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | express layout (MVC)  | H | 10hrs| 2hrs | -hrs |
-| `order.js/ products.js`   | H | 10hrs| 4hrs | --hrs |
-| `shoppingCart.db`| H | 10hrs| 3hrs | -hrs |
-| API: Stripe | H | 10hrs| 2hrs | --hrs |
-| CSS Page | M | 30hrs| --hrs | --hrs |
-| AUTH  | M | 10hrs| --hrs | --hrs |
-| login Page | M | 10hrs| --hrs | --hrs |
-| `MarketBasket.sql` | L | 10hrs| --hrs | --hrs |
-| productUpload  | L | 10hrs| --hrs | --hrs |
+| `order.js/ products.js`   | H | 6hrs| 4hrs | --hrs |
+| `shoppingCart.db`| H | 5hrs| 3hrs | -hrs |
+| API: Stripe | H | 4hrs| 2hrs | --hrs |
+| CSS Page | M | 6hrs| --hrs | --hrs |
+| AUTH  | L | 3hrs| --hrs | --hrs |
+| login Page | L | 1hrs| --hrs | --hrs |
+| `MarketBasket.sql` | L | 3hrs| --hrs | --hrs |
+| productUpload  | L | 4hrs| --hrs | --hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
@@ -160,6 +160,22 @@ Use this section to include a brief code snippet of functionality that you are p
  Use this section to list of all major issues encountered and their resolution.
 
 #### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: app.js:37: could not find index.ejs in directory views.  
+**RESOLUTION**: Was using the absolute and not relative path, also moved
+files to partials folder and didn't replace the string everywhere.
+**ERROR**: order.js:15 'SELECT * FROM orders WHERE id = null' 
+**RESOLUTION**: 
+**ERROR**: order.js:14-23 orders.id in the show/index.ejs were not both
+rendering 
+**RESOLUTION**: missing closing )};, missing closing %> 
+**ERROR**: order.js: throw erro unhandled error event
+**RESOLUTION**: wrote catch error statement wrong for above error
+**ERROR**: config.js: unhandled promise authentication error in pg-promise
+**RESOLUTION**: need to pass PW
+**ERROR**: ordersRouter.js:14-19 Cannot GET 
+**RESOLUTION**: require the ordersController
+
+
+
+
 
