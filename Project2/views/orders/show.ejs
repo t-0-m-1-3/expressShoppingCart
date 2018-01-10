@@ -8,9 +8,9 @@
 <% include ../partials/header.ejs %>
 <h1>whats going on</h1>
 
- <p> <#%= orders.id %></p>
- <p> <#%= orders.quantity %></p>
- <p> <%#= orders.quantity %></p>
+ <p> <%= orders.id %></p>
+ <p> <%= orders.quantity %></p>
+ <p> <#= orders.quantity %></p>
 <a href="/orders">Back to all orders</a>
 <a href="<%#= `/orders/${orders.id}/edit` %>">
   Edit orders.

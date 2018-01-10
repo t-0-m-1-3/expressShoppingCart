@@ -16,11 +16,6 @@ Order.findById = (id) => {
   console.log('inside find by id')
       console.log(db);
       return db.one(`SELECT * FROM orders WHERE id = $1`, [id])
-      .then(orders => {
-      console.log('inside .then of findbyid', orders);
-      }).catch(error => {
-      console.log('Error:', error);
-       });
  };
 // query the db and update an order
 Order.update = (orders, id) => {
