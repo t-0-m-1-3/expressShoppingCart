@@ -13,7 +13,7 @@ const ordersController = require('../controllers/orders-controller');
 //root route
 ordersRouter.get('/', ordersController.index);
 // ordersRouter.get('/new', ordersController.new);
-ordersRouter.get('/:id', ordersController.show);
+ : ordersRouter.get('/:id', ordersController.show);
 // ordersRouter.patch('/:id/edit', ordersController.edit);
 // ordersRouter.put('/:id', ordersController.update);
 ordersRouter.post('/', ordersController.create);
