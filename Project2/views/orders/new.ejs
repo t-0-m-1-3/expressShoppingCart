@@ -1,28 +1,54 @@
-
  <%#                                                    %>
  <%# new.ejs                                            %>
- <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
- <%#                                                    %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %> 
+<%#                                                      %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
 <#% include ../../views/header.ejs %>
+<body>
 
-<h1>Create an order</h1>
+  <p> 
+      <%= message %>
+    <br>
+    
+      Hey Tom if you're reading this message above you that means this worked. so Kick it 
+  </p>
 
-<form action="/orders" method="POST">
+  <p>
+       You're currently on the:  
+        <%= currentPage %> Page 
+  </p>
+
+  <p>
+      <%= documentTitle %>
+  </p>
+
+
+    <h4>Orders</h4>  
+      <a href="/orders/new">Place an Order</a>
+
+      <div class="order">
+   </h4>
+
+<h1>new a order</h1>
+
+<form action="<%= `/orders/new?_method=POST` %>" method="POST">
   <label for="quantity">quantity</label>
-  <input id="quantity" type="text" name="quantity" />
+  <input id="quantity" type="text" name="quantity" value="<%= orders.quantity %>" />
 
   <br />
 
-  <label for="productId">Product ID</label>
-  <input id="productId" type="text" name="productId" />
+  <label for="productId">productId</label>
+  <input id="productId" type="text" name="productId" value="<%= orders.productId %>" />
 
   <br />
 
-  <input type="submit" value="Create the order!" />
+  <input type="submit" value="Save changes" />
 </form>
 
-<a href="/orders">Cancel</a>
+  </div>
+
+
+
 <#% include ../../views/footer.ejs %>
 
