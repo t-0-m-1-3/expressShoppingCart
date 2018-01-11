@@ -12,8 +12,8 @@ ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
            res.render('index', {
-           message: 'success',
-           currentPage: 'home',
+           currentPage: 'index',
+           message: 'We value your business and contribution to our ability to impace the community',
            documentTitle: 'a store shopping cart',
            subTitle: 'thanks for trusting your gift giving with us!',
            orders: orders})
@@ -29,10 +29,10 @@ ordersController.show = (req,res) => {
   console.log('about to go into Order.findById() ')
       Order.findById(req.params.id)
             .then(orders => {
-              console.log('inside show controller vars next: ', req.params.id, req.params, orders)
+            console.log('inside show controller vars next: ', req.params.id, req.params, orders)
             res.render('orders/show',{
-            message: 'success',
-            currentPage: 'home',
+             message: 'We value your choice to do business with us and enhance our community',
+            currentPage: 'show',
             documentTitle: 'a store shopping cart',
             subTitle: 'thanks for trusting your gift giving with us!',
            orders: orders
@@ -44,10 +44,14 @@ ordersController.show = (req,res) => {
 //.edit()
 ordersController.edit = (req,res) => {
       Order.findById(req.params.id)
-           .then(orders => {
-           res.render('orders/edit', {
-           orders: orders
-          })
+         .then(orders => {
+           res.render(`orders/edit`, {
+             message: 'We value your choice to do business with us and enhance our community',
+            currentPage: 'edit',
+            documentTitle: 'a store shopping cart',
+            subTitle: 'thanks for trusting your gift giving with us!',
+            orders: orders
+            })
           }).catch(err => {
           res.status(400).json(err)
           })
@@ -63,10 +67,10 @@ ordersController.update = (req,res) => {
 .catch(err => {
   res.status(400).json(err)})
           })};
-// //.new()
-ordersController.create = (req,res) => {
-   res.render('orders/new')
- };
+//.new()
+ ordersController.create = (req,res) => {
+    res.render('orders/new')
+  };
 //.create()
 ordersController.create = (req,res) => {
       Order.create({
@@ -79,9 +83,9 @@ ordersController.create = (req,res) => {
             res.status(400).json(err);
           });
 };
-// // //.destroy()
+//.destroy()
 ordersController.destroy = (req,res) => {
-      Orders.destroy(req.params.id)
+      Order.destroy(req.params.id)
             .then(() => {
             res.redirect('/orders')
             })
@@ -89,5 +93,27 @@ ordersController.destroy = (req,res) => {
             res.status(400).json(err);
             });
 };
+//.charge()
+ordersController.charge = (req,res) => {
+      let amount = 500;
+
+  stripe.customers.create({
+     email: req.body.stripeEmail,
+    source: req.body.stripeToken
+  })
+  .then(customer =>
+    stripe.charges.create({
+      amount,
+      description: "Sample Charge",
+         currency: "usd",
+         customer: customer.id
+    }))
+  .then(charge => res.render('/charge', {keyPublishable}));
+            // })
+            // .catch(err => {
+            // res.status(400).json(err);
+            // });
+};
+
 
 module.exports = ordersController;

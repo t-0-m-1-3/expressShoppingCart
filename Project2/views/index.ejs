@@ -10,8 +10,11 @@
   <p> 
       <%= message %>
     <br>
+      <%= subTitle %>
+    <br>
+      <%= documentTitle %>
+    <br>
     
-      Hey Tom if you're reading this message above you that means this worked. so Kick it 
   </p>
 
   <p>
@@ -19,44 +22,32 @@
         <%= currentPage %> Page 
   </p>
 
-  <p>
-      <%= documentTitle %>
-  </p>
+  <h4>Orders</h4>  
+      <table>
+         <tr>
+            <th>Order ID</th><th>Quantity</th><th>Amount</th>
+         </tr>
 
-
-    <h4>Orders</h4>  
+           <% for (var i = 0; i < orders.length; i++) { %>
+            <tr>
+              <td><%= orders[i].id %></td>
+              <td><%= orders[i].quantity %></td>
+              <td><%= orders[i].amount %></td>
+        <td><form action="/charge" method="POST">
+          <article >
+          <label for="">Amount <%# = products.price %> </label>
+          </article>
+      <script class="stripe-button active"src="//checkout.stripe.com/v2/checkout.js" data-locale="auto" data-description="SAMPLE CHAGE" data-amount="500"></script>
+          <button type="submit" class="stripe-button-el" style="visibility: visible;">Pay with Card</button>
+          </td >
+            </tr>    
+           <% } %>
+</table>
+      <form action=""></form>
+      <form action=""></form>
+      <form class="deleteOrder" action=""></form>
       <a href="/orders/new">Place an Order</a>
       <a href="orders/update">Update an Order</a>
-
-    <% orders.forEach(orders => { %>
-      <div class="order">
-    <h4>
-        <a href="<%= `orders/${orders.id}` %>">
-  This is you're order ID:
-<br>
-    <%= orders.id %>
-<br>
-This is the Quantity
-<br>
-    <%= orders.quantity %>
-<br>
-This is a placeholder for the Products.Description join
-<br>
-    <%= orders.quantity %>
-        </a>
-    </h4>
-
-    <p>
-    pre join? i dunno
-    </br>
-
-    <%# products.description %>
-I don't know if this will work
-    </p>
-
-  </div>
-
-  <%}) %>
 
 </html>
 <% include ../views/partials/footer.ejs %>

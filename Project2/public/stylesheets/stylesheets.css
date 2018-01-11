@@ -1,0 +1,109 @@
+/*
+ * stylesheets.css
+ * Copyright (C) 2018 t0m
+ *
+ * Distributed under terms of the MIT license.
+ */
+head{
+  background-color: blue;
+  border-bottom: 3px dotted black;
+  border-radius: 2px;
+  font-family: serif;
+  font-size: 24px;
+    }
+
+header{
+  font-size: 32px;
+  border: 1px dashed grey;
+  border-radius: 15px;
+      }
+
+title{
+  }
+
+h1{}
+
+h4{
+  font-style: italic;
+  font-family: cursive;
+  font-size: 12px;
+  }
+
+
+#myTagline {
+  color: blue;
+  font-size:14px;
+}
+
+body {
+  text-align: center;
+	background: white;
+  font-family:  "Times New Roman", Times, Baskerville, Georgia, serif;
+	color: black;
+}
+
+a {
+  font-family: serif;
+  font-style: oblique;
+  font-size: 16px;
+}
+#orders {
+  font-family: cursive;
+  border: 0.5px dashed grey;
+  
+}
+img{
+  width: 80px;
+  height: 80px;
+  /* position: relative; */
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+}
+#menuImg {
+  font-size: 14px;
+  position: relative;
+  top: 4%;
+  right: 2%;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+
+}
+
+#storeImg {
+ font-size: 14px;
+ position: relative;
+ top: 4%;
+ right: 5%;
+ border-radius: 15px;
+ border: 1px solid lightgrey;
+}
+
+#cartImg {
+ font-size: 14px;
+ position: relative;
+ top: 50%;
+ left: 92%;
+ border-radius: 15px;
+ border: 1px solid lightgrey;
+}
+
+p{
+
+}
+
+table, th, td {
+    position: relative;
+    /* left: 30px; */
+    border: 1px dashed black;
+    border-collapse: collapse; 
+    padding: 10px 15px;
+    text-align: justify; 
+}
+
+#stripe-button-el {
+    border: 0.5px dashed blue;
+    border-radius: 5px;
+    display: block;
+    max-height: 30px;
+    min-height: 1px;
+  }

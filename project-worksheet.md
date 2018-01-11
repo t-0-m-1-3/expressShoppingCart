@@ -161,21 +161,28 @@ Use this section to include a brief code snippet of functionality that you are p
 
 #### SAMPLE.....
 **ERROR**: app.js:37: could not find index.ejs in directory views.  
+<br>
 **RESOLUTION**: Was using the absolute and not relative path, also moved
 files to partials folder and didn't replace the string everywhere.
+<br>
 **ERROR**: order.js:15 'SELECT * FROM orders WHERE id = null' 
+<br>
 **RESOLUTION**: 
+<br>
 **ERROR**: order.js:14-23 orders.id in the show/index.ejs were not both
 rendering 
 **RESOLUTION**: missing closing )};, missing closing %> 
+<br>
 **ERROR**: order.js: throw erro unhandled error event
+<br>
 **RESOLUTION**: wrote catch error statement wrong for above error
+<br>
 **ERROR**: config.js: unhandled promise authentication error in pg-promise
+<br>
 **RESOLUTION**: need to pass PW
+<br>
 **ERROR**: ordersRouter.js:14-19 Cannot GET 
+<br>
 **RESOLUTION**: require the ordersController
-
-
-
 
 

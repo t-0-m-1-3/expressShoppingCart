@@ -1,15 +1,54 @@
 
  <%#                                                    %>
  <%# edit.ejs                                            %>
- <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
- <%#                                                    %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %> 
+<%#                                                      %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
 <#% include ../../views/header.ejs %>
+<body>
 
+  <p> 
+      <%= message %>
+    <br>
+    
+      Hey Tom if you're reading this message above you that means this worked. so Kick it 
+  </p>
+
+  <p>
+       You're currently on the:  
+        <%= currentPage %> Page 
+  </p>
+
+  <p>
+      <%= documentTitle %>
+  </p>
+
+
+    <h4>Orders</h4>  
+      <a href="/orders/new">Place an Order</a>
+      <a href=<%= `/orders/${orders.id}/edit` %>Update an Order</a>
+
+
+      <div class="order">
+    <h4>
+        <a href="<%= `orders/${orders.id}` %>">
+  This is you're order ID:
+<br>
+    <%= orders.id %>
+<br>
+This is the Quantity
+<br>
+    <%= orders.quantity %>
+<br>
+This is a placeholder for the Products.Description join
+<br>
+    <%= orders.quantity %>
+        </a>
+    </h4>
 <h1>Edit a order</h1>
 
-<form action="<%= `/orders/${order.id}?_method=PUT` %>" method="POST">
+<form action="<%= `${order.id}/edit?_method=PATCH` %>" method="POST">
   <label for="quantity">quantity</label>
   <input id="quantity" type="text" name="quantity" value="<%= orders.quantity %>" />
 
@@ -23,6 +62,24 @@
   <input type="submit" value="Save changes" />
 </form>
 
-<a href="<%= `/orders/${orders.id}` %>">Cancel</a>
+
+<form action="<%= `/orders/{order.id}?_method=DELETE` %>" method="POST">
+  <label for="quantity">quantity</label>
+  <input id="quantity" type="text" name="quantity" value="0" />
+
+  <input type="submit" value="Save changes" />
+</form>
+
+    <p>
+    pre join? i dunno
+    </br>
+
+    <%# products.description %>
+I don't know if this will work
+    </p>
+
+  </div>
+
+
 <#% include ../../views/footer.ejs %>
 

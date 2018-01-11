@@ -1,0 +1,51 @@
+ <%#                                                    %>
+ <%# orderHistory.ejs                                            %>
+ <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
+ <%#                                                    %>
+ <%# Distributed under terms of the MIT license.  %>
+ <%#                                                    %>
+
+<% include ../views/partials/header.ejs %>
+<body>
+
+<!-- turn this into a table -->
+    <h4>You're Past Orders</h4>  
+      <a href="/orders/new">Place an Order</a>
+      <a href="orders/update">Update an Order</a>
+
+    <% orders.forEach(orders => { %>
+
+     <div class="order">
+    <h4>
+    <a href="<%= `orders/${orders.id}` %>">
+  This is you're order ID:
+<br>
+    <%= orders.id %>
+<br>
+This is the Quantity
+<br>
+    <%= orders.quantity %>
+<br>
+
+This is a placeholder for the Products.Description join
+<br>
+    <%= orders.quantity %>
+        </a>
+    </h4>
+
+    <p>
+    pre join? i dunno
+    </br>
+
+    <%# products.description %>
+I don't know if this will work
+    </p>
+
+  </div>
+
+  <%}) %>
+
+</html>
+<% include ../views/partials/footer.ejs %>
+
+

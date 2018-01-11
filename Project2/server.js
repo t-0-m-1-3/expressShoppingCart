@@ -4,6 +4,8 @@
  *
  * Distributed under terms of the MIT license.
  */
+ const keyPublishable = process.env.PUBLISHABLE_KEY;
+ const keySecret = process.env.SECRET_KEY;
  const express = require('express');
  const logger = require('morgan');
  const path = require('path');
@@ -12,6 +14,7 @@
  const app = express();
  const env = require('dotenv').config();
 // const axios = require('axios');
+ const stripe = require("stripe")(keySecret);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
