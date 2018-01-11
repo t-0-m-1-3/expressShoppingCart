@@ -11,7 +11,9 @@ const ordersController = {};
 ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
+           console.log('inside index controller vars next: ', req.params.id, req.params, orders)
            res.render('index', {
+           // keyPublishable: keyPublishable,
            currentPage: 'index',
            message: 'We value your business and contribution to our ability to impace the community',
            documentTitle: 'a store shopping cart',
@@ -29,7 +31,6 @@ ordersController.show = (req,res) => {
   console.log('about to go into Order.findById() ')
       Order.findById(req.params.id)
             .then(orders => {
-            console.log('inside show controller vars next: ', req.params.id, req.params, orders)
             res.render('orders/show',{
              message: 'We value your choice to do business with us and enhance our community',
             currentPage: 'show',
@@ -73,6 +74,7 @@ ordersController.update = (req,res) => {
   };
 //.create()
 ordersController.create = (req,res) => {
+  console.log('hitting controller Create')
       Order.create({
         productId: req.body.productId,
         quantity: req.body.quantity

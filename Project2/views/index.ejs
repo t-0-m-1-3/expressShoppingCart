@@ -25,7 +25,7 @@
   <h4>Orders</h4>  
       <table>
          <tr>
-            <th>Order ID</th><th>Quantity</th><th>Amount</th>
+            <th>Order ID</th><th>Quantity</th><th>Amount</th><th>checkout</th>
          </tr>
 
            <% for (var i = 0; i < orders.length; i++) { %>
@@ -33,21 +33,22 @@
               <td><%= orders[i].id %></td>
               <td><%= orders[i].quantity %></td>
               <td><%= orders[i].amount %></td>
-        <td><form action="/charge" method="POST">
-          <article >
-          <label for="">Amount <%# = products.price %> </label>
-          </article>
-      <script class="stripe-button active"src="//checkout.stripe.com/v2/checkout.js" data-locale="auto" data-description="SAMPLE CHAGE" data-amount="500"></script>
-          <button type="submit" class="stripe-button-el" style="visibility: visible;">Pay with Card</button>
-          </td >
-            </tr>    
+         <td>
+    <div class="deleteOrder">
+          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
+            <input type="submit" value="Cancel">
+          </form>
+    </div>
+
+    <form id="updateOrdeForm" href="/orders/<%= orders[i].id %>/edit?_method=PATCH"  method="POST">
+      <input type="submit" value="Update">
+    </form>
+
+</td>
+
            <% } %>
-</table>
-      <form action=""></form>
-      <form action=""></form>
-      <form class="deleteOrder" action=""></form>
-      <a href="/orders/new">Place an Order</a>
-      <a href="orders/update">Update an Order</a>
+    </table>
+
 
 </html>
 <% include ../views/partials/footer.ejs %>

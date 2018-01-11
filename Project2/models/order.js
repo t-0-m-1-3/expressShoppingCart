@@ -9,13 +9,13 @@ const db = require('../db/config');
 const Order = {};
 // query the db for the orders
 Order.findAll= () => {
-      return db.any('SELECT * FROM orders ORDER BY id DESC');
+      return db.any('select * from orders join products on CAST(orders.productid AS INT) = CAST(products.id AS INT)');
 };
 //Query the db for a specific id
 Order.findById = (id) => {
   console.log('inside find by id')
       console.log(db);
-      return db.one(`SELECT * FROM orders WHERE id = $1`, [id])
+      return db.one(`SELECT * FROM orders join products on CAST(orders.productid AS INT) = CAST(products.id AS INT)  WHERE orders.productid = $1`, [id])
  };
 // query the db and update an order
 Order.update = (orders, id) => {

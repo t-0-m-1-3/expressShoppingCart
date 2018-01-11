@@ -91,13 +91,13 @@ p{
 
 }
 
-table, th, td {
+table, th, td, {
     position: relative;
+    /* text-align: center; */
     /* left: 30px; */
-    border: 1px dashed black;
+    border: 5px dashed black;
     border-collapse: collapse; 
     padding: 10px 15px;
-    text-align: justify; 
 }
 
 #stripe-button-el {
@@ -106,4 +106,4 @@ table, th, td {
     display: block;
     max-height: 30px;
     min-height: 1px;
-  }
+}

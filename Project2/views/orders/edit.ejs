@@ -5,14 +5,18 @@
 <%#                                                      %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
-<#% include ../../views/header.ejs %>
+
+<% include ../views/partials/header.ejs %>
 <body>
 
   <p> 
       <%= message %>
     <br>
+      <%= subTitle %>
+    <br>
+      <%= documentTitle %>
+    <br>
     
-      Hey Tom if you're reading this message above you that means this worked. so Kick it 
   </p>
 
   <p>
@@ -20,66 +24,34 @@
         <%= currentPage %> Page 
   </p>
 
-  <p>
-      <%= documentTitle %>
-  </p>
+  <h4>Orders</h4>  
+      <table>
+         <tr>
+            <th>Order ID</th><th>Quantity</th><th>Amount</th><th>checkout</th>
+         </tr>
+
+           <% for (var i = 0; i < orders.length; i++) { %>
+            <tr>
+              <td><%= orders[i].productid %></td>
+              <td><%= orders[i].quantity %></td>
+              <td><%= orders[i].amount %></td>
+         <td>
+    <div class="deleteOrder">
+          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
+            <input type="submit" value="Cancel">
+          </form>
+    </div>
+
+    <form id="updateOrdeForm" href="/orders/<%= orders[i].id %>/edit?_method=PATCH"  method="POST">
+      <input type="submit" value="Update">
+    </form>
+
+</td>
+
+           <% } %>
+    </table>
 
 
-    <h4>Orders</h4>  
-      <a href="/orders/new">Place an Order</a>
-      <a href=<%= `/orders/${orders.id}/edit` %>Update an Order</a>
-
-
-      <div class="order">
-    <h4>
-        <a href="<%= `orders/${orders.id}` %>">
-  This is you're order ID:
-<br>
-    <%= orders.id %>
-<br>
-This is the Quantity
-<br>
-    <%= orders.quantity %>
-<br>
-This is a placeholder for the Products.Description join
-<br>
-    <%= orders.quantity %>
-        </a>
-    </h4>
-<h1>Edit a order</h1>
-
-<form action="<%= `${order.id}/edit?_method=PATCH` %>" method="POST">
-  <label for="quantity">quantity</label>
-  <input id="quantity" type="text" name="quantity" value="<%= orders.quantity %>" />
-
-  <br />
-
-  <label for="productId">productId</label>
-  <input id="productId" type="text" name="productId" value="<%= orders.productId %>" />
-
-  <br />
-
-  <input type="submit" value="Save changes" />
-</form>
-
-
-<form action="<%= `/orders/{order.id}?_method=DELETE` %>" method="POST">
-  <label for="quantity">quantity</label>
-  <input id="quantity" type="text" name="quantity" value="0" />
-
-  <input type="submit" value="Save changes" />
-</form>
-
-    <p>
-    pre join? i dunno
-    </br>
-
-    <%# products.description %>
-I don't know if this will work
-    </p>
-
-  </div>
-
-
-<#% include ../../views/footer.ejs %>
+</html>
+<% include ../views/partials/footer.ejs %>
 

@@ -14,7 +14,7 @@ const ordersController = require('../controllers/orders-controller');
 ordersRouter.get('/', ordersController.index);
 ordersRouter.post('/charge', ordersController.charge);
 ordersRouter.get('/:id', ordersController.show);
-ordersRouter.patch('/:id/edit', ordersController.edit);
+ordersRouter.patch('/:id/edit', ordersController.update);
 ordersRouter.post('/new', ordersController.create);
 ordersRouter.delete('/:id', ordersController.destroy);
 

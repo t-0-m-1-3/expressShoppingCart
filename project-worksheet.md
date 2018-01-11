@@ -107,7 +107,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | express layout (MVC)  | H | 10hrs| 5hrs | -hrs |
-| `order.js/ products.js`   | H | 6hrs| 3.5 | --hrs |
+| `order.js`   | H | 6hrs| 7.5 | --hrs |
+| ` products.js`   | H | 6hrs| 1.5 | --hrs |
 | `shoppingCart.db`| H | 5hrs| 2hrs | -hrs |
 | API: Stripe | H | 4hrs| 1hrs | --hrs |
 | CSS Page | M | 6hrs| 2hrs | --hrs |
