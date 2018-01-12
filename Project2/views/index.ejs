@@ -6,34 +6,24 @@
  <%#                                                    %>
 <% include ../views/partials/header.ejs %>
 <body>
-
-  <p> 
+   <p> 
       <%= message %>
     <br>
-      <%= subTitle %>
-    <br>
-      <%= documentTitle %>
-    <br>
-    
   </p>
-
-  <p>
-       You're currently on the:  
-        <%= currentPage %> Page 
-  </p>
-
-  <h4>Orders</h4>  
-      <table>
-         <tr>
-            <th>Order ID</th><th>Quantity</th><th>Amount</th><th>checkout</th>
+ <h4>Orders</h4>  
+      <table id="ordersTable">
+         <tr id="ordersHeader">
+            <th>Order ID</th><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
          </tr>
 
            <% for (var i = 0; i < orders.length; i++) { %>
             <tr>
-              <td><%= orders[i].id %></td>
-              <td><%= orders[i].quantity %></td>
-              <td><%= orders[i].amount %></td>
-         <td>
+              <td id="orderIdCell"><%= orders[i].id %></td>
+              <td id="nameCell"><%= orders[i].name %></td>
+              <td id="quantityCell"><%= orders[i].quantity %></td>
+              <td id="priceCell"><%= orders[i].price %></td>
+              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
+              <td>
     <div class="deleteOrder">
           <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
             <input type="submit" value="Cancel">
@@ -50,6 +40,34 @@
     </table>
 
 
-</html>
+  <p> 
+      <%= message %>
+    <br>
+      <%= subTitle %>
+    <br>
+      <%= documentTitle %>
+    <br>
+    
+  </p>
+
+  <p>
+       You're currently on the:  
+        <%= currentPage %> Page 
+  </p>
+
+      <%= subTitle %>
+    <br>
+      <%= documentTitle %>
+    <br>
+    
+  </p>
+
+  <p>
+       You're currently on the:  
+        <%= currentPage %> Page 
+  </p>
+
+
+
 <% include ../views/partials/footer.ejs %>
 
