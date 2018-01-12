@@ -7,14 +7,16 @@
 
 
 \c shoppingcart
-INSERT INTO orders (productId, quantity) VALUES
+INSERT INTO orders (u_id, productId, quantity) VALUES
   (
-    'testProdID',
+    '1',
+    '1',
     '8'
   ),
   
   (
-    'testProdID2',
+    '2',
+    '2',
     '10'
   );
 

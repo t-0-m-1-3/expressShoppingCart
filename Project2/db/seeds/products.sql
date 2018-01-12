@@ -7,17 +7,18 @@
 
 
 \c shoppingcart
-INSERT INTO products ( name, price, quantity) VALUES
+INSERT INTO products ( name, price, quantity, prodImg) VALUES
   (
-    'prodName',
+    'customPI',
     5.99,
-    8
-  ),
+    8,
+   'https://www.dropbox.com/s/q1uojl4pkljyefv/customPI.jpg?dl=0'  ),
   
   (
-    'prodName2',
+    'nintenPI',
     9.99,
-    3
+    3,
+'https://www.dropbox.com/s/ppaupqw617hfzjx/nintenPI.jpg?dl=0'
     
   );
 
