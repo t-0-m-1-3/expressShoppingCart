@@ -72,7 +72,6 @@ a {
 }
 th {
   border-bottom: 0.5px solid black;
-<<<<<<< HEAD
   background-color: grey; 
 }
 td {
@@ -84,13 +83,6 @@ td {
   background-color: white;
   position: absolute;
   left: 50x;
-=======
-  
-}
-#ordersTable {
-  position: absolute;
-  left: 50px;
->>>>>>> 9b923cd7242aabe9ed6a0931e4609b019b9c97a2
   border: 1px dashed grey;
   border-collapse: collapse; 
   
@@ -141,8 +133,6 @@ p{
 
 }
 
-<<<<<<< HEAD
-=======
 /* table, th, td, { */
 /*     position: relative; */
 /*     text-align: center; */
@@ -152,7 +142,7 @@ p{
 /*     padding: 10px 15px; */
 /* } */
 
->>>>>>> 9b923cd7242aabe9ed6a0931e4609b019b9c97a2
+
 #stripe-button-el {
     border: 0.5px dashed blue;
     border-radius: 5px;

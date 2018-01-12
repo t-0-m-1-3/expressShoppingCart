@@ -6,10 +6,10 @@
  <%#                                                    %>
 <% include ../views/partials/header.ejs %>
 <body>
-   <p> 
+
+  <p> 
       <%= message %>
     <br>
-<<<<<<< HEAD
  </p>
 
   <p>
@@ -66,32 +66,6 @@
    <form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
      <input type="submit" value="Update">
    </form>
-=======
-  </p>
- <h4>Orders</h4>  
-      <table id="ordersTable">
-         <tr id="ordersHeader">
-            <th>Order ID</th><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
-         </tr>
-
-           <% for (var i = 0; i < orders.length; i++) { %>
-            <tr>
-              <td id="orderIdCell"><%= orders[i].id %></td>
-              <td id="nameCell"><%= orders[i].name %></td>
-              <td id="quantityCell"><%= orders[i].quantity %></td>
-              <td id="priceCell"><%= orders[i].price %></td>
-              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
-              <td>
-    <div class="deleteOrder">
-          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-            <input type="submit" value="Cancel">
-          </form>
-    </div>
-
-    <form id="updateOrdeForm" href="/orders/<%= orders[i].id %>/edit?_method=PATCH"  method="POST">
-      <input type="submit" value="Update">
-    </form>
->>>>>>> 9b923cd7242aabe9ed6a0931e4609b019b9c97a2
 
 </td>
 
@@ -104,37 +78,4 @@
 
 </div>
 
-<<<<<<< HEAD
-=======
-  <p> 
-      <%= message %>
-    <br>
-      <%= subTitle %>
-    <br>
-      <%= documentTitle %>
-    <br>
-    
-  </p>
-
-  <p>
-       You're currently on the:  
-        <%= currentPage %> Page 
-  </p>
-
-      <%= subTitle %>
-    <br>
-      <%= documentTitle %>
-    <br>
-    
-  </p>
-
-  <p>
-       You're currently on the:  
-        <%= currentPage %> Page 
-  </p>
-
-
-
->>>>>>> 9b923cd7242aabe9ed6a0931e4609b019b9c97a2
 <% include ../views/partials/footer.ejs %>
-
