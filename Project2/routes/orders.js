@@ -12,7 +12,7 @@ const ordersController = require('../controllers/orders-controller');
 
 //root route
 ordersRouter.get('/', ordersController.index);
-// ordersRouter.get('/ordersHistory', ordersController.history)
+// ordersRouter.get('/ordershistory', ordersController.history)
 ordersRouter.post('/charge', ordersController.charge);
 ordersRouter.get('/:id', ordersController.show);
 ordersRouter.patch('/edit/:id', ordersController.update);
