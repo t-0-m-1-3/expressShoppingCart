@@ -4,6 +4,7 @@
  *
  * Distributed under terms of the MIT license.
  */
+ const PW = process.env.password;
  const keyPublishable = process.env.PUBLISHABLE_KEY;
  const keySecret = process.env.SECRET_KEY;
  const express = require('express');
@@ -30,10 +31,7 @@ app.listen(PORT, () => {
   // console.log(`Listening on Port: ${PORT}`);
 });
 
-const ordersRouter = require('./routes/orders');
-app.use('/orders', ordersRouter);
-const productsRouter = require('./routes/products');
-app.use('/products', productsRouter);
+
 
 
 app.get('/', (req, res) => {
@@ -42,6 +40,12 @@ app.get('/', (req, res) => {
         message: 'Index page'
    });
 });
+
+const ordersRouter = require('./routes/orders');
+app.use('/orders', ordersRouter);
+const productsRouter = require('./routes/products');
+app.use('/products', productsRouter);
+
 
 app.get('*', (req, res) => {
   res.status(404).send('not found');

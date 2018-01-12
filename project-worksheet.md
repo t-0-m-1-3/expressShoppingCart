@@ -56,17 +56,18 @@ Include images of your wireframes.
 
 [routeDiagram](https://www.dropbox.com/s/zsn7cp1qa4y7kua/routeDiagram.md?dl=0)
 
-[another one](https://www.dropbox.com/s/k8h7mommz4bdypx/20180105_141851.jpg?dl=0)
+[wireframe2](https://www.dropbox.com/s/k8h7mommz4bdypx/20180105_141851.jpg?dl=0)
 
-[another nother one](https://www.dropbox.com/s/2p5gtit3dxnfoes/20180105_165301.jpg?dl=0)
+[wireframe3](https://www.dropbox.com/s/2p5gtit3dxnfoes/20180105_165301.jpg?dl=0)
 
-[yeah well](https://www.dropbox.com/s/c0bcelxb8aszvg3/20180105_165304.jpg?dl=0)
+[wireframe4](https://www.dropbox.com/s/c0bcelxb8aszvg3/20180105_165304.jpg?dl=0)
 
-[i took a lot of pictures](https://www.dropbox.com/s/rzx0tkmkz0wqfnt/20180105_165307.jpg?dl=0)
+[wireframe5](https://www.dropbox.com/s/rzx0tkmkz0wqfnt/20180105_165307.jpg?dl=0)
 
-[and none of these are what I need](https://www.dropbox.com/s/ycn4m8k2rrorkf5/20180105_165317.jpg?dl=0)
+[wireframe6](https://www.dropbox.com/s/ycn4m8k2rrorkf5/20180105_165317.jpg?dl=0)
 
-[the last one](https://www.dropbox.com/s/nxb58uy8hjqyhsw/20180108_095902.jpg?dl=0)
+[wireframes7](https://www.dropbox.com/s/nxb58uy8hjqyhsw/20180108_095902.jpg?dl=0)
+
 
 
 ## App Components
@@ -162,14 +163,12 @@ Use this section to include a brief code snippet of functionality that you are p
 
 #### SAMPLE.....
 **ERROR**: app.js:37: could not find index.ejs in directory views.  
-<br>
 **RESOLUTION**: Was using the absolute and not relative path, also moved
 files to partials folder and didn't replace the string everywhere.
 <br>
 **ERROR**: order.js:15 'SELECT * FROM orders WHERE id = null' 
 <br>
-**RESOLUTION**: 
-<br>
+**RESOLUTION**: had to use `parseInt()`  
 **ERROR**: order.js:14-23 orders.id in the show/index.ejs were not both
 rendering 
 <br>
@@ -186,5 +185,21 @@ rendering
 **ERROR**: ordersRouter.js:14-19 Cannot GET 
 <br>
 **RESOLUTION**: require the ordersController
+<br>
+**ERROR**: productId is incrementing and coming through as null for the
+CREATE route.
 
+**RESOLUTION**: 
 
+``` 
+this is e.query: SELECT * FROM orders join products on 
+CAST(orders.productid AS INT) = CAST(products.id AS INT) 
+WHERE orders.productid = '27'
+GET /orders/27 400 1.579 ms - 2365
+hitting controller Create
+this is e.query: 
+    INSERT INTO orders
+    (productId, quantity)
+    VALUES (null, '10') RETURNING *
+
+``` 

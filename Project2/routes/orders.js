@@ -12,9 +12,10 @@ const ordersController = require('../controllers/orders-controller');
 
 //root route
 ordersRouter.get('/', ordersController.index);
+// ordersRouter.get('/ordersHistory', ordersController.history)
 ordersRouter.post('/charge', ordersController.charge);
 ordersRouter.get('/:id', ordersController.show);
-ordersRouter.patch('/:id/edit', ordersController.update);
+ordersRouter.patch('/edit/:id', ordersController.update);
 ordersRouter.post('/new', ordersController.create);
 ordersRouter.delete('/:id', ordersController.destroy);
 

@@ -23,33 +23,25 @@
        You're currently on the:  
         <%= currentPage %> Page 
   </p>
+<h1>Edit an order</h1>
+<form action="<%= `/edit/:id?_method=POST` %>" id="editForm" method="POST">
+<br>
+<select name="prodList" form="prodForm">
+  <option value="prodName4">Product1</option>
+  <option value="prodName4">Product2</option>
+  <option value="prodName4">Product3</option>
+  <option value="prodName4">Product4</option>
+</select>
 
-  <h4>Orders</h4>  
-      <table>
-         <tr>
-            <th>Order ID</th><th>Quantity</th><th>Amount</th><th>checkout</th>
-         </tr>
+ <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
+ <input type="submit" value="Save changes" />
+</form>
 
-           <% for (var i = 0; i < orders.length; i++) { %>
-            <tr>
-              <td><%= orders[i].productid %></td>
-              <td><%= orders[i].quantity %></td>
-              <td><%= orders[i].amount %></td>
-         <td>
-    <div class="deleteOrder">
-          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-            <input type="submit" value="Cancel">
-          </form>
-    </div>
-
-    <form id="updateOrdeForm" href="/orders/<%= orders[i].id %>/edit?_method=PATCH"  method="POST">
-      <input type="submit" value="Update">
-    </form>
+  </div>
 
 </td>
 
-           <% } %>
-    </table>
+</table>
 
 
 </html>

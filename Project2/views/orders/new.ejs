@@ -10,9 +10,7 @@
   <p> 
       <%= message %>
     <br>
-    
-      Hey Tom if you're reading this message above you that means this worked. so Kick it 
-  </p>
+ </p>
 
   <p>
        You're currently on the:  
@@ -31,6 +29,18 @@
    </h4>
 
 <h1>new a order</h1>
+<form action="<%= `/orders/new?_method=POST` %>" id="createForm">
+  OrderNumber:<input type="text" name="orderNumCreateForm" value="<%= orders.productid %>">
+  <input type="submit">
+</form>
+<br>
+<select name="prodList" form="prodForm">
+  <option value="prodName4">Product1</option>
+  <option value="prodName4">Product2</option>
+  <option value="prodName4">Product3</option>
+  <option value="prodName4">Product4</option>
+</select>
+ <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
 
 <form action="<%= `/orders/new?_method=POST` %>" method="POST">
   <label for="quantity">quantity</label>

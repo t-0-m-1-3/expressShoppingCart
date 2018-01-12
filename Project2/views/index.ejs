@@ -10,46 +10,73 @@
   <p> 
       <%= message %>
     <br>
-      <%= subTitle %>
-    <br>
-      <%= documentTitle %>
-    <br>
-    
-  </p>
+ </p>
 
   <p>
        You're currently on the:  
         <%= currentPage %> Page 
   </p>
 
-  <h4>Orders</h4>  
-      <table>
-         <tr>
-            <th>Order ID</th><th>Quantity</th><th>Amount</th><th>checkout</th>
-         </tr>
+  <p>
+      <%= documentTitle %>
+  </p>
 
-           <% for (var i = 0; i < orders.length; i++) { %>
-            <tr>
-              <td><%= orders[i].id %></td>
-              <td><%= orders[i].quantity %></td>
-              <td><%= orders[i].amount %></td>
-         <td>
-    <div class="deleteOrder">
-          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-            <input type="submit" value="Cancel">
-          </form>
-    </div>
 
-    <form id="updateOrdeForm" href="/orders/<%= orders[i].id %>/edit?_method=PATCH"  method="POST">
-      <input type="submit" value="Update">
-    </form>
+    <div class="order">
+
+<h1>Place new a order</h1>
+<form action="<%= `/orders/new?_method=POST` %>" id="createForm" method="POST">
+<br>
+<select name="prodList" form="prodForm">
+  <option value="prodName4">Product1</option>
+  <option value="prodName4">Product2</option>
+  <option value="prodName4">Product3</option>
+  <option value="prodName4">Product4</option>
+</select>
+
+ <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
+ <input type="submit" value="Save changes" />
+</form>
+
+  </div>
+
+<div>you're past orders
+
+<h4>Orders</h4>  
+
+<table id="ordersTable">
+        <tr id="ordersHeader">
+           <th>Order ID</th><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
+        </tr>
+
+          <% for (var i = 0; i < orders.length; i++) { %>
+           <tr>
+             <td id="orderIdCell"><%= orders[i].id %></td>
+             <td id="nameCell"><%= orders[i].name %></td>
+             <td id="quantityCell"><%= orders[i].quantity %></td>
+             <td id="priceCell"><%= orders[i].price %></td>
+             <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
+             <td>
+   <div class="deleteOrder">
+         <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
+           <input type="submit" value="Cancel">
+         </form>
+   </div>
+
+   <form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
+     <input type="submit" value="Update">
+   </form>
 
 </td>
 
-           <% } %>
-    </table>
+          <% } %>
+   </table>
 
 
-</html>
+
+
+
+</div>
+
 <% include ../views/partials/footer.ejs %>
 

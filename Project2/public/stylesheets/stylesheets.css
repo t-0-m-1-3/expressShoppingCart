@@ -11,8 +11,31 @@ head{
   font-family: serif;
   font-size: 24px;
     }
+#menuContainer {
+ /* border: 0.5px dotted lightpink; */
+position: absolute;
+ left: 2%;
+ border-radius: 10px;
+}
+#menuContainer:hover {
+  background-color: blue;
 
+}
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon */
+#menu {
+    width: 35px;
+    height: 5px;
+    background-color: grey;
+    margin: 6px 0;
+}
+#menu:hover {
+    width: 55px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
 header{
+  background-color: lightblue;
   font-size: 32px;
   border: 1px dashed grey;
   border-radius: 15px;
@@ -37,7 +60,7 @@ h4{
 
 body {
   text-align: center;
-	background: white;
+	background: lightcyan;
   font-family:  "Times New Roman", Times, Baskerville, Georgia, serif;
 	color: black;
 }
@@ -47,14 +70,33 @@ a {
   font-style: oblique;
   font-size: 16px;
 }
-#orders {
+th {
+  border-bottom: 0.5px solid black;
+  background-color: grey; 
+}
+td {
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
+#ordersTable {
+  background-color: white;
+  position: absolute;
+  left: 50x;
+  border: 1px dashed grey;
+  border-collapse: collapse; 
+  
+}
+
+#orderTable {
   font-family: cursive;
-  border: 0.5px dashed grey;
+  border: 1px dashed grey;
+  border-collapse: collapse; 
   
 }
 img{
-  width: 80px;
-  height: 80px;
+  width: 15px;
+  height: 15px;
   /* position: relative; */
   border-radius: 15px;
   border: 1px solid lightgrey;
@@ -89,15 +131,6 @@ img{
 
 p{
 
-}
-
-table, th, td, {
-    position: relative;
-    /* text-align: center; */
-    /* left: 30px; */
-    border: 5px dashed black;
-    border-collapse: collapse; 
-    padding: 10px 15px;
 }
 
 #stripe-button-el {
