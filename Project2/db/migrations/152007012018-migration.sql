@@ -10,7 +10,7 @@
 
 CREATE TABLE IF NOT EXISTS orders (
   id SERIAL PRIMARY KEY NOT NULL, 
-    productId INT, 
+    productid INT, 
     u_id INT,
     quantity INT);
 
@@ -31,14 +31,14 @@ CREATE TABLE IF NOT EXISTS users (
    ccNum BIGINT,
    password VARCHAR(255)
  
-)
+);
 
-CREATE TABLE IF NOT EXISTS cart (
-  id SERIAL PRIMARY KEY NOT NULL, 
-  productId INT,
-  u_id INT,
-  o_id INT,
-)
+/* CREATE TABLE IF NOT EXISTS cart ( */
+/*   id SERIAL PRIMARY KEY NOT NULL, */ 
+/*   productId INT, */
+/*   u_id INT, */
+/*   o_id INT, */
+/* ); */
 
 -- vim:et
 

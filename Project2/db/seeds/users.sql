@@ -5,9 +5,8 @@
  * Distributed under terms of the MIT license.
  */
 
-INSERT INTO users (id, uName, email, address, ccNum, password) VALUES
+INSERT INTO users ( uName, email, address, ccNum, password) VALUES
   (
-    '1',
     'testUser1',
     'testUser1@testUser.com'
     '200 Sand Lane Long Island City, New York',
@@ -15,7 +14,6 @@ INSERT INTO users (id, uName, email, address, ccNum, password) VALUES
     'iLikeCheeseburgersandBassPasswordPractices'
   ),
   (
-    '2',
     'testUser2',
     'testUser2@testUser.com'
     '204 Sand Lane Long Island City, New York',
