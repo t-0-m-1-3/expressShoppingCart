@@ -6,44 +6,81 @@
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
 
-<% include ../views/partials/header.ejs %>
-<body>
+<% include ../partials/header.ejs %>
 
-  <p> 
-      <%= message %>
-    <br>
-      <%= subTitle %>
-    <br>
-      <%= documentTitle %>
-    <br>
-    
-  </p>
+<div class="col-6 col-m-9">
+ <h1>You're currently Editing the Cart for Order number:  <%= orders.id %></h1>
+<h4>Orders</h4>  
 
-  <p>
-       You're currently on the:  
-        <%= currentPage %> Page 
-  </p>
-<h1>Edit an order</h1>
-<form action="<%= `/edit/:id?_method=POST` %>" id="editForm" method="POST">
-<br>
-<select name="prodList" form="prodForm">
-  <option value="prodName4">Product1</option>
-  <option value="prodName4">Product2</option>
-  <option value="prodName4">Product3</option>
-  <option value="prodName4">Product4</option>
-</select>
+<% var t = $('table'), inputs = t.find('input, select'), b = $('button'), ta = $('#save') %>
 
- <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
- <input type="submit" value="Save changes" />
-</form>
+<% t.on('change', 'input, select', (e) => { %>
+ <%      $el = $(e.target) %>
+ <%      $el.data('val', $el.val()) %>
+ <%      console.log($el.val()) %>
+<% }) %>
 
-  </div>
+<% b.on('click', () => { %>
+ <%  	var data = [] %>
+ <%  	inputs.each((i,inp) => data.push($(inp).data()) ) %>
+	<% ta.text(JSON.stringify(data)) %>
+<% }) %>
 
-</td>
+<style>
+input {border : 1px solid #fff;margin:0; font-size:20px; }
+input:focus,input:active,input:hover { outline: 1px solid #eee; background-color:#eee; }
+select { border: 1px solid #fff; margin:0; padding:0; font-size:20px; border:0; 
+   -webkit-appearance: none;
+   -moz-appearance: none;
+}
 
+table { border : 1px solid #999; border-collapse:collapse;border-spacing:0; }
+table td { padding:0; margin:0;border:1px solid #999; }
+table th { background-color: #aaa; min-width:20px;border:1px solid #999; }
+</style>
+
+<tr data-row="0">
+        <th>1</th>
+        <td><input disabled type="text" data-row="0" data-col="0" data-val="a" value="a" /></td>
+        <td>
+<select data-row="0" data-col="1" data-val="yes"><option>yes</option><option>no</option></select></td>
+        <td><input type="text" data-row="0" data-col="2" data-val="c" value="c" /></td>
+    </tr>
+    <tr data-row="1">
+        <th>2</th>
+        <td><input disabled type="text" data-row="1" data-col="0" data-val="d" value="d" /></td>
+        <td><select data-row="1" data-col="1" data-val="no"><option>yes</option><option selected>no</option></select></td>
+        <td><input type="text" data-row="1" data-col="2" data-val="f" value="f" /></td>
+    </tr>
+    <tr data-row="2">
+        <th>3</th>
+        <td><input disabled type="text" data-row="2" data-col="0" data-val="g" value="g" /></td>
+        <td><select data-row="2" data-col="1" data-val="no"><option>yes</option><option selected>no</option></select></td>
+        <td><input type="text" data-row="2" data-col="2" data-val="i" value="i" /></td>
+    </tr>
+</table>
+<table id=orderTable>
+   <tr id="ordersHeader">
+      <th>Product  ID</th><th>Name</th><th>Quantity</th><th>Price</th><th><strong>Total</strong></th>
+   </tr>
+      <tr>
+        <td id="productIdCell"><a href="/orders/<%#= orders.productid %>"><%= orders.productid %></a></td>
+        <td id="nameCell"><a href="/products/<%= orders.productid %>"></a><%= orders.name %></td>
+        <td id="quantityCell"><%= orders.quantity %></td>
+        <td id="priceCell"><%= orders.price %></td>
+        <td id="totalCell"><%= orders.quantity * orders.price %> </td>
 </table>
 
+<div class="deleteOrder">
+    <form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
+      <input type="submit" value="Cancel">
+    </form>
+</div>
 
-</html>
-<% include ../views/partials/footer.ejs %>
+<div class="updateForm">
+    <form id="updateOrdeForm" href="/orders/<%= orders.id %>/edit?_method=PATCH"  method="POST">
+      <input type="submit" value="Update">
+    </form>
+</div>
+<% include ../partials/footer.ejs %>
 

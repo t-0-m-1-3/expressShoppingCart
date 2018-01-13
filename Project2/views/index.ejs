@@ -5,44 +5,13 @@
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
 <% include ../views/partials/header.ejs %>
-<body>
-
-  <p> 
-      <%= message %>
-    <br>
- </p>
-
-  <p>
-       You're currently on the:  
-        <%= currentPage %> Page 
-  </p>
-
-  <p>
-      <%= documentTitle %>
-  </p>
-
-
-    <div class="order">
-
-<h1>Place new a order</h1>
-<form action="<%= `/orders/new?_method=POST` %>" id="createForm" method="POST">
-<br>
-<select name="prodList" form="prodForm">
-  <option value="prodName4">Product1</option>
-  <option value="prodName4">Product2</option>
-  <option value="prodName4">Product3</option>
-  <option value="prodName4">Product4</option>
-</select>
-
- <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
- <input type="submit" value="Save changes" />
-</form>
-
-  </div>
-
 <div>you're past orders
 
-<h4>Orders</h4>  
+</div>
+
+<div class="col-3 col-m-12">
+  <div class="aside">
+ <h4>Orders</h4>  
 
 <table id="ordersTable">
         <tr id="ordersHeader">
@@ -51,29 +20,54 @@
 
           <% for (var i = 0; i < orders.length; i++) { %>
            <tr>
-             <td id="orderIdCell"><%= orders[i].id %></td>
+             <td id="orderIdCell"><a href="/products/<%= orders[i].id 
+%>"></a><%= orders[i].id  %></td>
              <td id="nameCell"><%= orders[i].name %></td>
              <td id="quantityCell"><%= orders[i].quantity %></td>
              <td id="priceCell"><%= orders[i].price %></td>
              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
-             <td>
-   <div class="deleteOrder">
+<tr>
+  <td colspan="3">   <div class="deleteOrder">
          <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
            <input type="submit" value="Cancel">
          </form>
    </div>
+</td>
+</tr>
 
+<tr>
+  <td colspan="3">
    <form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
      <input type="submit" value="Update">
    </form>
-
 </td>
+</tr>
+
 
           <% } %>
    </table>
+  </div>
+</div>
+<div class="col-6 col-m-9">
+<h1>Place new a order</h1>
 
-
-
+<form action="<%= `/orders/new?_method=POST` %>" id="createForm" 
+method="POST">
+UserId:
+<select id="u_id" name="u_id" form="createForm">
+  <option value="1">testuser1</option>
+  <option value="2">testuser2</option>
+</select>
+<br>
+product:
+<select id="productid" name="productid" form="createForm">
+  <option value="2">nintenPi</option>
+  <option value="1">customPi</option>
+</select>
+ quantity:
+ <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
+ <input type="submit" value="Save changes" >
+</form></div>
 
 
 </div>

@@ -28,24 +28,6 @@ ordersController.index = (req,res) => {
 };
 
 
-//findAll()
-ordersController.history = (req,res) => {
-      Order.findAll()
-           .then(orders => {
-           console.log('inside index controller vars next: ', req.params.id, req.params, orders)
-           res.render('/orderHistory', {
-           // keyPublishable: keyPublishable,
-           currentPage: 'history',
-           message: 'We value your business and contribution to our ability to impace the community',
-           documentTitle: 'a store shopping cart',
-           subTitle: 'thanks for trusting your gift giving with us!',
-           orders: orders})
-           })
-.catch(err => {
-          res.status(400).json(err)
-          })
-};
-
 //.show()
 ordersController.show = (req,res) => {
   console.log(req.params)
@@ -66,7 +48,8 @@ ordersController.show = (req,res) => {
 
 ordersController.update = (req,res) => {
       Order.update({
-        productId: req.body.productId,
+        productid: req.body.productid,
+        u_id: req.body.u_id,
         quantity: req.body.quantity },
                   req.params.id)
           .then(() => {
@@ -74,21 +57,19 @@ ordersController.update = (req,res) => {
 .catch(err => {
   res.status(400).json(err)})
           })};
-// //.new()
-//  ordersController.create = (req,res) => {
-//     res.render('orders/new')
-//   };
+          
 //.create()
 ordersController.create = (req,res) => {
-  console.log('hitting controller Create')
+  console.log('hitting controller Create');
+  console.log(req.body);
+  console.log("\n");
       Order.create({
-        productId: req.body.id,
-        // name: req.body.prodList,
+        u_id: req.body.u_id,
+        productid: req.body.productid,
         quantity: req.body.quantity
         })
           .then(orders => {
             res.redirect(`/orders/${orders.id}`)
-            //  res.redirect(`/orders/${req.body.id}`)
           }).catch(err => {
             res.status(400).json(err);
           });
@@ -97,6 +78,7 @@ ordersController.create = (req,res) => {
 ordersController.destroy = (req,res) => {
       Order.destroy(req.params.id)
             .then(() => {
+            console.log('you just deleted order: ' + req.params.id)
             res.redirect('/orders')
             })
             .catch(err => {
