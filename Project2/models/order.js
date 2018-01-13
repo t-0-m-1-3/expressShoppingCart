@@ -19,7 +19,7 @@ Order.findById = (id) => {
  };
 // query the db and update an order
 Order.update = (orders, id) => {
-  console.log("inside update controller");
+  console.log("inside update model");
       console.log("this is order: ", orders, id)
       return db.none (
       `

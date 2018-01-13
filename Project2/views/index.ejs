@@ -30,13 +30,20 @@
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-Update Here
-<form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
-Update Product:
+<form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
+UserId:
+    <select id="UIdUp" name="UIdUp" form="updateForm">
+      <option value="1">U1</option>
+      <option value="2">U2</option>
+    </select>
+<br>
+Product:
     <select id="produIdUp" name="produIdUp" form="updateForm">
       <option value="1">customPi</option>
       <option value="2">nintenPi</option>
-Update Quantity:
+    </select>
+<br>
+Quantity:
     <input type="number" name="quantUpdate"  value="1" maxlength="9">
     <input type="submit" value="Update">
 </form>
@@ -49,11 +56,11 @@ Update Quantity:
 </table>
   </div>
 </div>
+
 <div class="col-6 col-m-9">
 <h1>Place new a order</h1>
 
-<form action="<%= `/orders/new?_method=POST` %>" id="createForm" 
-method="POST">
+<form action="<%= `/orders/new?_method=POST` %>" id="createForm" method="POST">
 UserId:
 <select id="u_id" name="u_id" form="createForm">
   <option value="1">testuser1</option>
