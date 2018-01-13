@@ -107,12 +107,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| express layout (MVC)  | H | 10hrs| 5hrs | -hrs |
-| `order.js`   | H | 6hrs| 7.5 | --hrs |
+| express layout (MVC)  | H | 10hrs| 9hrs | -hrs |
+| `order.js`   | H | 6hrs| 24.5 | --hrs |
 | ` products.js`   | H | 6hrs| 1.5 | --hrs |
-| `shoppingCart.db`| H | 5hrs| 2hrs | -hrs |
+| `shoppingCart.db`| H | 5hrs| 4hrs | -hrs |
 | API: Stripe | H | 4hrs| 1hrs | --hrs |
-| CSS Page | M | 6hrs| 2hrs | --hrs |
+| CSS Page | M | 6hrs| 3.2hrs | --hrs |
 | AUTH  | L | 3hrs| --hrs | --hrs |
 | login Page | L | 1hrs| --hrs | --hrs |
 | `MarketBasket.sql` | L | 3hrs| --hrs | --hrs |
@@ -162,10 +162,6 @@ Use this section to include a brief code snippet of functionality that you are p
  Use this section to list of all major issues encountered and their resolution.
 
 #### SAMPLE.....
-**ERROR**: app.js:37: could not find index.ejs in directory views.  
-**RESOLUTION**: Was using the absolute and not relative path, also moved
-files to partials folder and didn't replace the string everywhere.
-<br>
 **ERROR**: order.js:15 'SELECT * FROM orders WHERE id = null' 
 <br>
 **RESOLUTION**: had to use `parseInt()`  
@@ -174,7 +170,7 @@ rendering
 <br>
 **RESOLUTION**: missing closing )};, missing closing %> 
 <br>
-**ERROR**: order.js: throw erro unhandled error event
+**ERROR**: order.js: throw error unhandled error event
 <br>
 **RESOLUTION**: wrote catch error statement wrong for above error
 <br>
@@ -188,9 +184,6 @@ rendering
 <br>
 **ERROR**: productId is incrementing and coming through as null for the
 CREATE route.
-
-**RESOLUTION**: 
-
 ``` 
 this is e.query: SELECT * FROM orders join products on 
 CAST(orders.productid AS INT) = CAST(products.id AS INT) 
@@ -202,4 +195,39 @@ this is e.query:
     (productId, quantity)
     VALUES (null, '10') RETURNING *
 
-``` 
+```
+ 
+**RESOLUTION**: Form was referenced under the wrong name. 
+<br>
+**Error**: CREATE Route not pushing all data to db
+<br>
+**RESOLUTION**: query references were too ambiguous
+<br>
+**Error**: `index.ejs` showed product id's while `show.ejs` showed orders id's.
+
+**RESOLUTION**: Controller needed to be updated to reflect .ejs changes 
+<br>
+**Errorr**: Orders table stuck to left side.
+
+**RESOLUTION**: In Process
+<br>
+**Error**:
+```
+GET /orders?quantUpdate=1 200 21.793 ms - 11374
+GET /stylesheets/stylesheets.css 304 1.448 ms - -
+GET /orders/edit/29?quantUpdate=1 404 1.256 ms - 9
+```
+**RESOLUTION**: In Process
+<br>
+**ERROR**:
+```
+PATCH /orders/edit/21 302 45.930 ms - 31
+(node:29554) UnhandledPromiseRejectionWarning: Unhandled promise
+rejection (rejection id: 1): TypeError: Cannot read property 'catch' of
+undefined
+(node:29554) [DEP0018] DeprecationWarning: Unhandled promise rejections
+are deprecated. In the future, promise rejections that are not handled
+will terminate the Node.js process with a non-zero exit code.
+GET /orders/edit/orders/21 404 2.439 ms - 9
+```
+**RESOLUTION**:In Process

@@ -47,13 +47,15 @@ ordersController.show = (req,res) => {
 };
 
 ordersController.update = (req,res) => {
+  console.log(req.params)
+  console.log('about to go into Order.update() ')
       Order.update({
         productid: req.body.productid,
         u_id: req.body.u_id,
         quantity: req.body.quantity },
                   req.params.id)
           .then(() => {
-            res.redirect(`orders/edit/${req.params.id}`)
+            res.redirect(`orders/${req.params.id}`)
 .catch(err => {
   res.status(400).json(err)})
           })};
