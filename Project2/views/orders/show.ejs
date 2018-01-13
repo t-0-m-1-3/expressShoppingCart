@@ -6,6 +6,7 @@
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
 <% include ../partials/header.ejs %>
+
 <div class="col-6 col-m-9">
  <h1>You're currently Viewing the Cart for Order number:  <%= orders.id %></h1>
 <h4>Orders</h4>  
@@ -14,7 +15,7 @@
       <th>Product  ID</th><th>Name</th><th>Quantity</th><th>Price</th><th><strong>Total</strong></th>
    </tr>
       <tr>
-        <td id="productIdCell"><a href="/orders/<%#= orders.productid %>"><%= orders.productid %></a></td>
+        <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
         <td id="nameCell"><a href="/products/<%= orders.productid %>"></a><%= orders.name %></td>
         <td id="quantityCell"><%= orders.quantity %></td>
         <td id="priceCell"><%= orders.price %></td>
@@ -31,5 +32,7 @@
       <input type="submit" value="Update">
     </form>
 </div>
+
+
 <% include ../partials/footer.ejs %>
 

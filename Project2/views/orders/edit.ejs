@@ -7,58 +7,6 @@
  <%#                                                    %>
 
 <% include ../partials/header.ejs %>
-
-<div class="col-6 col-m-9">
- <h1>You're currently Editing the Cart for Order number:  <%= orders.id %></h1>
-<h4>Orders</h4>  
-
-<% var t = $('table'), inputs = t.find('input, select'), b = $('button'), ta = $('#save') %>
-
-<% t.on('change', 'input, select', (e) => { %>
- <%      $el = $(e.target) %>
- <%      $el.data('val', $el.val()) %>
- <%      console.log($el.val()) %>
-<% }) %>
-
-<% b.on('click', () => { %>
- <%  	var data = [] %>
- <%  	inputs.each((i,inp) => data.push($(inp).data()) ) %>
-	<% ta.text(JSON.stringify(data)) %>
-<% }) %>
-
-<style>
-input {border : 1px solid #fff;margin:0; font-size:20px; }
-input:focus,input:active,input:hover { outline: 1px solid #eee; background-color:#eee; }
-select { border: 1px solid #fff; margin:0; padding:0; font-size:20px; border:0; 
-   -webkit-appearance: none;
-   -moz-appearance: none;
-}
-
-table { border : 1px solid #999; border-collapse:collapse;border-spacing:0; }
-table td { padding:0; margin:0;border:1px solid #999; }
-table th { background-color: #aaa; min-width:20px;border:1px solid #999; }
-</style>
-
-<tr data-row="0">
-        <th>1</th>
-        <td><input disabled type="text" data-row="0" data-col="0" data-val="a" value="a" /></td>
-        <td>
-<select data-row="0" data-col="1" data-val="yes"><option>yes</option><option>no</option></select></td>
-        <td><input type="text" data-row="0" data-col="2" data-val="c" value="c" /></td>
-    </tr>
-    <tr data-row="1">
-        <th>2</th>
-        <td><input disabled type="text" data-row="1" data-col="0" data-val="d" value="d" /></td>
-        <td><select data-row="1" data-col="1" data-val="no"><option>yes</option><option selected>no</option></select></td>
-        <td><input type="text" data-row="1" data-col="2" data-val="f" value="f" /></td>
-    </tr>
-    <tr data-row="2">
-        <th>3</th>
-        <td><input disabled type="text" data-row="2" data-col="0" data-val="g" value="g" /></td>
-        <td><select data-row="2" data-col="1" data-val="no"><option>yes</option><option selected>no</option></select></td>
-        <td><input type="text" data-row="2" data-col="2" data-val="i" value="i" /></td>
-    </tr>
-</table>
 <table id=orderTable>
    <tr id="ordersHeader">
       <th>Product  ID</th><th>Name</th><th>Quantity</th><th>Price</th><th><strong>Total</strong></th>

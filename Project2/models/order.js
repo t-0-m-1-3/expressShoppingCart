@@ -9,7 +9,7 @@ const db = require('../db/config');
 const Order = {};
 // query the db for the orders
 Order.findAll= () => {
-      return db.any('SELECT * FROM orders join products on CAST(orders.productid AS INT) = CAST(products.id AS INT ORDER BY id DESC)');
+      return db.any('SELECT orders.id, productid, orders.quantity, products.name, products.price FROM orders join products on CAST(orders.productid AS INT) = CAST(products.id AS INT) ORDER BY orders.id DESC;');
 };
 //Query the db for a specific id
 Order.findById = (id) => {
@@ -19,6 +19,7 @@ Order.findById = (id) => {
  };
 // query the db and update an order
 Order.update = (orders, id) => {
+  console.log("inside update controller");
       console.log("this is order: ", orders, id)
       return db.none (
       `

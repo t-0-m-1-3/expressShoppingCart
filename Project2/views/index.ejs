@@ -15,37 +15,38 @@
 
 <table id="ordersTable">
         <tr id="ordersHeader">
-           <th>Order ID</th><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
+           <th>Order ID</th><th>ProdId</td><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
         </tr>
 
           <% for (var i = 0; i < orders.length; i++) { %>
+
            <tr>
-             <td id="orderIdCell"><a href="/products/<%= orders[i].id 
-%>"></a><%= orders[i].id  %></td>
+             <td id="orderIdCell"><a href="/orders/<%= orders[i].id %>"><%= orders[i].id  %></a></td>
+             <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders[i].productid %></a></td>
              <td id="nameCell"><%= orders[i].name %></td>
              <td id="quantityCell"><%= orders[i].quantity %></td>
              <td id="priceCell"><%= orders[i].price %></td>
              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
 <tr>
-  <td colspan="3">   <div class="deleteOrder">
-         <form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-           <input type="submit" value="Cancel">
-         </form>
-   </div>
+  <td colspan="3">   
+<div id="updateOrder">
+Update Here
+<form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
+Update Product:
+    <select id="produIdUp" name="produIdUp" form="updateForm">
+      <option value="1">customPi</option>
+      <option value="2">nintenPi</option>
+Update Quantity:
+    <input type="number" name="quantUpdate"  value="1" maxlength="9">
+    <input type="submit" value="Update">
+</form>
+</div>
+
 </td>
 </tr>
-
-<tr>
-  <td colspan="3">
-   <form id="updateOrderForm" href="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
-     <input type="submit" value="Update">
-   </form>
-</td>
-</tr>
-
 
           <% } %>
-   </table>
+</table>
   </div>
 </div>
 <div class="col-6 col-m-9">

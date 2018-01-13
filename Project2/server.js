@@ -32,8 +32,6 @@ app.listen(PORT, () => {
 });
 
 
-
-
 app.get('/', (req, res) => {
   res.send('Hey We\'re Live')
       res.render('index', {

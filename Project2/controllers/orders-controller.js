@@ -13,7 +13,7 @@ const ordersController = {};
 ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
-           console.log('inside index controller vars next: ', req.params.id, req.params, orders)
+           console.log('inside index controller vars next: ', req.params, orders)
            res.render('index', {
            // keyPublishable: keyPublishable,
            currentPage: 'index',
