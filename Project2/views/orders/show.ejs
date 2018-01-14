@@ -5,7 +5,7 @@
  <%#                                                    %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
-<% include ../partials/header.ejs %>
+  <% include ../partials/header.ejs %>
 
 <div class="col-3 col-m-12">
   <div class="aside">
@@ -16,7 +16,7 @@
            <th>Order ID</th><th>ProdId</td><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
         </tr>
            <tr>
-             <td id="orderIdCell"><a href="/orders/<%= orders[i].id %>"><%= orders.id  %></a></td>
+             <td id="orderIdCell"><a href="/orders/<%= orders.id %>"><%= orders.id  %></a></td>
              <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
              <td id="nameCell"><%= orders.name %></td>
              <td id="quantityCell"><%= orders.quantity %></td>
@@ -25,7 +25,7 @@
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-<form id="updateOrderForm" action="/orders/edit/<%= orders.id %>?_method=PATCH"  method="PATCH">
+<form id="updateOrderForm" action="<%= `/orders/edit/orders.id?_method=PATCH` %>"  method="PATCH">
 UserId:
     <select id="UIdUp" name="UIdUp" form="updateForm">
       <option value="1">U1</option>

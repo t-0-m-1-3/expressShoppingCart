@@ -27,10 +27,11 @@
              <td id="quantityCell"><%= orders[i].quantity %></td>
              <td id="priceCell"><%= orders[i].price %></td>
              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
+</tr>
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-<form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
+<form id="updateOrderForm" action="<%= `/orders/edit/<%= orders[i].id?_method=PATCH` %>"  method="PATCH">
 UserId:
     <select id="UIdUp" name="UIdUp" form="updateForm">
       <option value="1">U1</option>
