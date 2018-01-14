@@ -5,35 +5,31 @@
  <%#                                                    %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
-  <% include ../partials/header.ejs %>
+<% include ../partials/header.ejs %>
 
-<div class="col-3 col-m-12">
-  <div class="aside">
- <h4>Orders</h4>  
-
-<table id="ordersTable">
-        <tr id="ordersHeader">
-           <th>Order ID</th><th>ProdId</td><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
-        </tr>
-           <tr>
-<<<<<<< HEAD
-             <td id="orderIdCell"><a href="/orders/<%= orders.id %>"><%= orders.id  %></a></td>
-=======
-             <td id="orderIdCell"><a href="/orders/<%= orders[i].id %>"><%= orders.id  %></a></td>
->>>>>>> 451c9683b19f878e3839a7d996533487d0ebf712
-             <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
-             <td id="nameCell"><%= orders.name %></td>
-             <td id="quantityCell"><%= orders.quantity %></td>
-             <td id="priceCell"><%= orders.price %></td>
-             <td id="totalCell"><%= orders.quantity * orders.price %> </td>
+<div class="col-6 col-m-9">
+ <h1>You're currently Viewing the Cart for Order number:  <%= orders.id %></h1>
+<h4>Orders</h4>  
+<table id=orderTable>
+   <tr id="ordersHeader">
+      <th>Product  ID</th><th>Name</th><th>Quantity</th><th>Price</th><th><strong>Total</strong></th>
+   </tr>
+      <tr>
+        <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
+        <td id="nameCell"><a href="/products/<%= orders.productid %>"></a><%= orders.name %></td>
+        <td id="quantityCell"><%= orders.quantity %></td>
+        <td id="priceCell"><%= orders.price %></td>
+        <td id="totalCell"><%= orders.quantity * orders.price %> </td>
+</table>
+<div class="deleteOrder">
+    <form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
+      <input type="submit" value="Cancel">
+    </form>
+</div>
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-<<<<<<< HEAD
-<form id="updateOrderForm" action="<%= `/orders/edit/orders.id?_method=PATCH` %>"  method="PATCH">
-=======
-<form id="updateOrderForm" action="/orders/edit/<%= orders.id %>?_method=PATCH"  method="PATCH">
->>>>>>> 451c9683b19f878e3839a7d996533487d0ebf712
+<form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
 UserId:
     <select id="UIdUp" name="UIdUp" form="updateForm">
       <option value="1">U1</option>
@@ -55,10 +51,11 @@ Quantity:
 </td>
 </tr>
 
+          <% } %>
 </table>
   </div>
 </div>
-          <% } %>
-</div>
+
 
 <% include ../partials/footer.ejs %>
+

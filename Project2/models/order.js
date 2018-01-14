@@ -18,9 +18,9 @@ Order.findById = (id) => {
       return db.one(`SELECT orders.id, productid, orders.quantity, products.name, products.price FROM orders join products on CAST(orders.productid AS INT) = CAST(products.id AS INT) WHERE orders.id = $1`, [id])
  };
 // query the db and update an order
-Order.update = (orders, id) => {
+Order.update = (orders, ordersId) => {
   console.log("inside update model");
-      console.log("this is order: ", orders, id)
+      console.log("this is order: ", orders, ordersId)
       return db.none (
       `
       UPDATE orders SET
@@ -29,7 +29,7 @@ Order.update = (orders, id) => {
       quantity = $3
       WHERE id = $4
       `,
-      [ orders.u_id, orders.productid, orders.quantity, id])
+      [ orders.u_id, orders.productid, orders.quantity, ordersId])
 };
 // query the db and create an order
 Order.create = ( orders ) => {

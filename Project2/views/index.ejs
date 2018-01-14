@@ -4,7 +4,8 @@
  <%#                                                    %>
  <%# Distributed under terms of the MIT license.  %>
  <%#                                                    %>
-<% include ../views/partials/header.ejs %>
+<%include ../views/partials/header.ejs %>
+
 <div>you're past orders
 
 </div>
@@ -31,26 +32,24 @@
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-<<<<<<< HEAD
-<form id="updateOrderForm" action="<%= `/orders/edit/<%= orders[i].id?_method=PATCH` %>"  method="PATCH">
-=======
-<form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
->>>>>>> 451c9683b19f878e3839a7d996533487d0ebf712
+<form id="order-<%= orders[i].id %>-updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="POST">
 UserId:
-    <select id="UIdUp" name="UIdUp" form="updateForm">
+    <select id="order-<%= orders[i].id %>-UIdUp" name="u_id" form="order-<%= orders[i].id %>-updateOrderForm">
       <option value="1">U1</option>
       <option value="2">U2</option>
     </select>
 <br>
 Product:
-    <select id="produIdUp" name="produIdUp" form="updateForm">
+    <select id="order-<%= orders[i].id %>-produIdUp" name="productid" form="order-<%= orders[i].id %>-updateOrderForm">
       <option value="1">customPi</option>
       <option value="2">nintenPi</option>
     </select>
 <br>
 Quantity:
-    <input type="number" name="quantUpdate"  value="1" maxlength="9">
-    <input type="submit" value="Update">
+    <input form="order-<%= orders[i].id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
+    <input form="order-<%= orders[i].id %>-updateOrderForm" type="submit" value="Update Order">
+
+</div>
 </form>
 </div>
 

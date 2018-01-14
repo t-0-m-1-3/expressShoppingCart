@@ -52,21 +52,15 @@ ordersController.update = (req,res) => {
       Order.update({
         productid: req.body.productid,
         u_id: req.body.u_id,
-        quantity: req.body.quantity },
+        quantity: req.body.quantUpdate },
                   req.params.id)
           .then(() => {
             res.redirect(`orders/${req.params.id}`)
-<<<<<<< HEAD
           })
           .catch(err => {
             res.status(400).json(err)
           })
 };
-=======
-.catch(err => {
-  res.status(400).json(err)})
-          })};
->>>>>>> 451c9683b19f878e3839a7d996533487d0ebf712
           
 //.create()
 ordersController.create = (req,res) => {
