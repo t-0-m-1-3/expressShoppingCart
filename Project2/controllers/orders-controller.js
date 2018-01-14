@@ -56,11 +56,17 @@ ordersController.update = (req,res) => {
                   req.params.id)
           .then(() => {
             res.redirect(`orders/${req.params.id}`)
+<<<<<<< HEAD
           })
           .catch(err => {
             res.status(400).json(err)
           })
 };
+=======
+.catch(err => {
+  res.status(400).json(err)})
+          })};
+>>>>>>> 451c9683b19f878e3839a7d996533487d0ebf712
           
 //.create()
 ordersController.create = (req,res) => {
