@@ -31,27 +31,6 @@
   <td colspan="3">   
 <div id="updateOrder">
 <form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
-=======
-<div class="col-3 col-m-12">
-  <div class="aside">
- <h4>Orders</h4>  
-
-<table id="ordersTable">
-        <tr id="ordersHeader">
-           <th>Order ID</th><th>ProdId</td><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
-        </tr>
-           <tr>
-             <td id="orderIdCell"><a href="/orders/<%= orders.id %>"><%= orders.id  %></a></td>
-             <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
-             <td id="nameCell"><%= orders.name %></td>
-             <td id="quantityCell"><%= orders.quantity %></td>
-             <td id="priceCell"><%= orders.price %></td>
-             <td id="totalCell"><%= orders.quantity * orders.price %> </td>
-<tr>
-  <td colspan="3">   
-<div id="updateOrder">
-<form id="updateOrderForm" action="<%= `/orders/edit/orders.id?_method=PATCH` %>"  method="PATCH">
->>>>>>> f2e590983665fdd823595aaf823286e383271adf
 UserId:
     <select id="UIdUp" name="UIdUp" form="updateForm">
       <option value="1">U1</option>
