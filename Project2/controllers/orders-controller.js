@@ -92,11 +92,8 @@ ordersController.destroy = (req,res) => {
 };
 //.charge()
 ordersController.charge = (req,res) => {
-<<<<<<< HEAD
+
      let amount = 500;
-=======
-    let amount = 500;
->>>>>>> 02971f57ffa930820a5477e25355842407d1562d
  console.log(req.body);
   stripe.customers.create({
      email: req.body.stripeEmail,
