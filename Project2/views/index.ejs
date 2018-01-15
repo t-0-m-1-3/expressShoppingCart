@@ -32,11 +32,7 @@
 <tr>
   <td colspan="3">   
 <div id="updateOrder">
-<<<<<<< HEAD
 <form id="order-<%= orders[i].id %>-updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="POST">
-=======
-<form id="updateOrderForm" action="<%= `/orders/edit/<%= orders[i].id?_method=PATCH` %>"  method="PATCH">
->>>>>>> f2e590983665fdd823595aaf823286e383271adf
 UserId:
     <select id="order-<%= orders[i].id %>-UIdUp" name="u_id" form="order-<%= orders[i].id %>-updateOrderForm">
       <option value="1">U1</option>
