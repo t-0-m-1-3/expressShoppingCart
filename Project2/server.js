@@ -27,8 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-   console.log(`Starting SkyNe on Port: ${PORT}`);
-  // console.log(`Listening on Port: ${PORT}`);
+   console.log(`Starting ShoppingNet on Port: ${PORT}`);
 });
 
 

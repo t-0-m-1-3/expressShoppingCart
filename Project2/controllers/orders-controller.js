@@ -6,6 +6,7 @@
  */
 const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
+const stripe = require('stripe')(keySecret);
 const Order = require('../models/order');
 const ordersController = {};
 //
@@ -14,9 +15,9 @@ ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
            console.log('inside index controller vars next: ', req.params, orders)
-           res.render('orders/index', {
+           res.render('orders/order', {
            // keyPublishable: keyPublishable,
-           currentPage: 'orders/index',
+           currentPage: 'orders/orders',
            message: 'We value your business and contribution to our ability to impace the community',
            documentTitle: 'a store shopping cart',
            subTitle: 'thanks for trusting your gift giving with us!',
@@ -55,7 +56,7 @@ ordersController.update = (req,res) => {
         quantity: req.body.quantUpdate },
                   req.params.id)
           .then(() => {
-            res.redirect(`orders/${req.params.id}`)
+            res.redirect(`../${req.params.id}`)
           })
           .catch(err => {
             res.status(400).json(err)
@@ -91,11 +92,11 @@ ordersController.destroy = (req,res) => {
 };
 //.charge()
 ordersController.charge = (req,res) => {
-      let amount = 500;
-
+     let amount = 500;
+ console.log(req.body);
   stripe.customers.create({
      email: req.body.stripeEmail,
-    source: req.body.stripeToken
+    source: req.body.stripeToken,
   })
   .then(customer =>
     stripe.charges.create({
@@ -104,11 +105,11 @@ ordersController.charge = (req,res) => {
          currency: "usd",
          customer: customer.id
     }))
-  .then(charge => res.render('/charge', {keyPublishable}));
-            // })
-            // .catch(err => {
-            // res.status(400).json(err);
-            // });
+  .then(charge => res.render('orders/charge'));
+             // })
+             // .catch(err => {
+             // res.status(400).json(err);
+             // })
 };
 
 

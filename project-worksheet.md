@@ -231,3 +231,15 @@ will terminate the Node.js process with a non-zero exit code.
 GET /orders/edit/orders/21 404 2.439 ms - 9
 ```
 **RESOLUTION**:In Process
+<br>
+**ERROR**:
+```
+{ stripeToken: 'tok_1BkdkQCCc75TQqu5nhYuDhmm',
+  stripeTokenType: 'card',
+  stripeEmail: 'test1@gmail.com' }
+POST /orders/charge 500 15.233 ms - 2838
+TypeError: Cannot read property 'create' of undefined
+
+```
+
+**RESOLUTION**: In Process

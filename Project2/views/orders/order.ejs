@@ -1,5 +1,5 @@
  <%#                                                    %>
- <%# index.ejs                                            %>
+ <%# order.ejs                                            %>
  <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
  <%#                                                    %>
  <%# Distributed under terms of the MIT license.  %>
@@ -30,30 +30,7 @@
              <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
 </tr>
 <tr>
-  <td colspan="3">   
-<div id="updateOrder">
-<form id="order-<%= orders[i].id %>-updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="POST">
-UserId:
-    <select id="order-<%= orders[i].id %>-UIdUp" name="u_id" form="order-<%= orders[i].id %>-updateOrderForm">
-      <option value="1">U1</option>
-      <option value="2">U2</option>
-    </select>
-<br>
-Product:
-    <select id="order-<%= orders[i].id %>-produIdUp" name="productid" form="order-<%= orders[i].id %>-updateOrderForm">
-      <option value="1">customPi</option>
-      <option value="2">nintenPi</option>
-    </select>
-<br>
-Quantity:
-    <input form="order-<%= orders[i].id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
-    <input form="order-<%= orders[i].id %>-updateOrderForm" type="submit" value="Update Order">
-</form>
-<form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-      <input type="submit" value="Cancel">
-</form>
-</div>
-</form>
+
 </div>
 
 </td>
