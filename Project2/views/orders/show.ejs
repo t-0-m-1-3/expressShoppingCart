@@ -56,7 +56,7 @@ product:
 <form action="/orders/charge" method="POST">
 <script
   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="pk_test_UNvvkhU65jqd39YP0hQziBx8"
+  data-key="process.ENV.PUBLISHABLE_KEY"
   data-amount="<%= orders.price %>00"
   data-name="<%= orders.name %>"
   data-description="Description:<%= orders.name %> is a small device designed to teach computing"
