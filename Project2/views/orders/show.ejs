@@ -1,4 +1,3 @@
-
  <%#                                                    %>
  <%# show.ejs                                            %>
  <%# Copyright (C) 2018 t0m <t0m@asuntu>               %>
@@ -13,46 +12,17 @@
 <table id=orderTable>
    <tr id="ordersHeader">
       <th>Product  ID</th><th>Name</th><th>Quantity</th><th>Price</th><th><strong>Total</strong></th>
-   </tr>
+   <tr>
       <tr>
+        <td id="productImgCell"><img id="productImg" src="img/<%= orders.name%>.jpg" alt="<%= orders.name %>"></tr>
+        </td>
         <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders.productid %></a></td>
         <td id="nameCell"><a href="/products/<%= orders.productid %>"></a><%= orders.name %></td>
         <td id="quantityCell"><%= orders.quantity %></td>
         <td id="priceCell"><%= orders.price %></td>
         <td id="totalCell"><%= orders.quantity * orders.price %> </td>
 </table>
-<div class="deleteOrder">
-    <form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
-      <input type="submit" value="Cancel">
-    </form>
-</div>
 <tr>
- <td colspan="3">   
-<div id="updateOrder">
-<form id="order-<%= orders.id %>-updateOrderForm" action="/orders/edit/<%= orders.id %>?_method=PATCH"  method="POST">
-UserId:
-    <select id="order-<%= orders.id %>-UIdUp" name="u_id" form="order-<%= orders.id %>-updateOrderForm">
-      <option value="1">U1</option>
-      <option value="2">U2</option>
-    </select>
-<br>
-Product:
-    <select id="order-<%= orders.id %>-produIdUp" name="productid" form="order-<%= orders.id %>-updateOrderForm">
-      <option value="1">customPi</option>
-      <option value="2">nintenPi</option>
-    </select>
-<br>
-Quantity:
-    <input form="order-<%= orders.id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
-    <input form="order-<%= orders.id %>-updateOrderForm" type="submit" value="Update Order">
-</form>
-<form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
-      <input type="submit" value="Cancel">
-</form>
-</div>
-</form>
-</div>
-
 </td>
 </tr>
 
@@ -81,6 +51,43 @@ product:
 </form></div>
 
 
+</div>
+
+<form action="/orders/charge" method="POST">
+<script
+  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="pk_test_UNvvkhU65jqd39YP0hQziBx8"
+  data-amount="<%= orders.price %>00"
+  data-name="<%= orders.name %>"
+  data-description="Description:<%= orders.name %> is a small device designed to teach computing"
+  data-image="/img/darkWhal.png"
+  data-locale="auto">
+</script>
+</form>
+
+<div id="updateOrder">
+<form id="order-<%= orders.id %>-updateOrderForm" action="/orders/edit/<%= orders.id %>?_method=PATCH"  method="POST">
+UserId:
+    <select id="order-<%= orders.id %>-UIdUp" name="u_id" form="order-<%= orders.id %>-updateOrderForm">
+      <option value="1">U1</option>
+      <option value="2">U2</option>
+    </select>
+<br>
+Product:
+    <select id="order-<%= orders.id %>-produIdUp" name="productid" form="order-<%= orders.id %>-updateOrderForm">
+      <option value="1">customPi</option>
+      <option value="2">nintenPi</option>
+    </select>
+<br>
+Quantity:
+    <input form="order-<%= orders.id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
+    <input form="order-<%= orders.id %>-updateOrderForm" type="submit" value="Update Order">
+</form>
+<form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
+      <input type="submit" value="Cancel">
+</form>
+</div>
+</form>
 </div>
 
 
