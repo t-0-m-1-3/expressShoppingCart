@@ -48,7 +48,7 @@ ordersController.show = (req,res) => {
 
 ordersController.update = (req,res) => {
   console.log(req.params)
-  console.log('about to go into Order.update() ')
+  console.log('about to go into Order.update() '+ req.params.id);
       Order.update({
         productid: req.body.productid,
         u_id: req.body.u_id,
