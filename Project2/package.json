@@ -4,7 +4,8 @@
   "description": "a simple shop api build",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:ejs":"ejslint ./views/orders/show.ejs"
   },
   "keywords": [
     "node",

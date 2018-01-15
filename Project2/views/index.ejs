@@ -10,60 +10,6 @@
 
 </div>
 
-<div class="col-3 col-m-12">
-  <div class="aside">
- <h4>Orders</h4>  
-
-<table id="ordersTable">
-        <tr id="ordersHeader">
-           <th>Order ID</th><th>ProdId</td><th>Name</th><th>Quantity</th><th>Price</th><th>Total</th>
-        </tr>
-
-          <% for (var i = 0; i < orders.length; i++) { %>
-
-           <tr>
-             <td id="orderIdCell"><a href="/orders/<%= orders[i].id %>"><%= orders[i].id  %></a></td>
-             <td id="productIdCell"><a href="/orders/<%= orders.productid %>"><%= orders[i].productid %></a></td>
-             <td id="nameCell"><%= orders[i].name %></td>
-             <td id="quantityCell"><%= orders[i].quantity %></td>
-             <td id="priceCell"><%= orders[i].price %></td>
-             <td id="totalCell"><%= orders[i].quantity * orders[i].price %> </td>
-</tr>
-<tr>
-  <td colspan="3">   
-<div id="updateOrder">
-<form id="order-<%= orders[i].id %>-updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="POST">
-UserId:
-    <select id="order-<%= orders[i].id %>-UIdUp" name="u_id" form="order-<%= orders[i].id %>-updateOrderForm">
-      <option value="1">U1</option>
-      <option value="2">U2</option>
-    </select>
-<br>
-Product:
-    <select id="order-<%= orders[i].id %>-produIdUp" name="productid" form="order-<%= orders[i].id %>-updateOrderForm">
-      <option value="1">customPi</option>
-      <option value="2">nintenPi</option>
-    </select>
-<br>
-Quantity:
-    <input form="order-<%= orders[i].id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
-    <input form="order-<%= orders[i].id %>-updateOrderForm" type="submit" value="Update Order">
-</form>
-<form id="deleteForm" action="/orders/<%= orders[i].id %>?_method=DELETE"  method="POST">
-      <input type="submit" value="Cancel">
-</form>
-</div>
-</form>
-</div>
-
-</td>
-</tr>
-
-          <% } %>
-</table>
-  </div>
-</div>
-
 <div class="col-6 col-m-9">
 <h1>Place new a order</h1>
 

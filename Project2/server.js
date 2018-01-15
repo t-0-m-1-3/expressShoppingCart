@@ -33,7 +33,7 @@ app.listen(PORT, () => {
 
 
 app.get('/', (req, res) => {
-  res.send('Hey We\'re Live')
+  // res.send('Hey We\'re Live')
       res.render('index', {
         message: 'Index page'
    });
