@@ -172,7 +172,7 @@ td {
   /* position: absolute; */
   right: 90px;
   width: 350px;
-  border: 1px dashed grey;
+   border: 1px dashed grey;
   border-collapse: collapse; 
   
 }
@@ -182,34 +182,21 @@ td {
   border: 1px dashed grey;
   
 }
+
 img{
-  width: 15px;
-  height: 15px;
+  width: 55px;
+  height: 35px;
   /* position: relative; */
-  border-radius: 15px;
+  border-radius:  5px;
   border: 1px solid lightgrey;
 }
-/* #storeImg { */
-/*  font-size: 14px; */
-/*  position: relative; */
-/*  top: 4%; */
-/*  right: 5%; */
-/*  border-radius: 15px; */
-/*  border: 1px solid lightgrey; */
-/* } */
-
-/* #cartImg { */
-/*  font-size: 14px; */
-/*  position: relative; */
-/*  top: 50%; */
-/*  left: 92%; */
-/*  border-radius: 15px; */
-/*  border: 1px solid lightgrey; */
-/* } */
 
 p{
- border: 1px dashed red;
+ font-style: normal;
+ font-size: 16px;
+ font-family: monospace;
 }
+
 #stripe-button-el {
     border: 0.5px dashed blue;
     border-radius: 5px;
