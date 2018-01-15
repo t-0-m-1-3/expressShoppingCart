@@ -14,9 +14,9 @@ ordersController.index = (req,res) => {
       Order.findAll()
            .then(orders => {
            console.log('inside index controller vars next: ', req.params, orders)
-           res.render('index', {
+           res.render('orders/index', {
            // keyPublishable: keyPublishable,
-           currentPage: 'index',
+           currentPage: 'orders/index',
            message: 'We value your business and contribution to our ability to impace the community',
            documentTitle: 'a store shopping cart',
            subTitle: 'thanks for trusting your gift giving with us!',

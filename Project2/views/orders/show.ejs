@@ -7,7 +7,6 @@
  <%#                                                    %>
 <% include ../partials/header.ejs %>
 
-<<<<<<< HEAD
 <div class="col-6 col-m-9">
  <h1>You're currently Viewing the Cart for Order number:  <%= orders.id %></h1>
 <h4>Orders</h4>  
@@ -28,33 +27,60 @@
     </form>
 </div>
 <tr>
-  <td colspan="3">   
+ <td colspan="3">   
 <div id="updateOrder">
-<form id="updateOrderForm" action="/orders/edit/<%= orders[i].id %>?_method=PATCH"  method="PATCH">
+<form id="order-<%= orders.id %>-updateOrderForm" action="/orders/edit/<%= orders.id %>?_method=PATCH"  method="POST">
 UserId:
-    <select id="UIdUp" name="UIdUp" form="updateForm">
+    <select id="order-<%= orders.id %>-UIdUp" name="u_id" form="order-<%= orders.id %>-updateOrderForm">
       <option value="1">U1</option>
       <option value="2">U2</option>
     </select>
 <br>
 Product:
-    <select id="produIdUp" name="produIdUp" form="updateForm">
+    <select id="order-<%= orders.id %>-produIdUp" name="productid" form="order-<%= orders.id %>-updateOrderForm">
       <option value="1">customPi</option>
       <option value="2">nintenPi</option>
     </select>
 <br>
 Quantity:
-    <input type="number" name="quantUpdate"  value="1" maxlength="9">
-    <input type="submit" value="Update">
+    <input form="order-<%= orders.id %>-updateOrderForm" type="number" name="quantUpdate"  value="1" maxlength="9">
+    <input form="order-<%= orders.id %>-updateOrderForm" type="submit" value="Update Order">
+</form>
+<form id="deleteForm" action="/orders/<%= orders.id %>?_method=DELETE"  method="POST">
+      <input type="submit" value="Cancel">
+</form>
+</div>
 </form>
 </div>
 
 </td>
 </tr>
 
-          <% } %>
 </table>
   </div>
+</div>
+
+<div class="col-6 col-m-9">
+<h1>Place new a order</h1>
+
+<form action="<%= `/orders/new?_method=POST` %>" id="createForm" method="POST">
+UserId:
+<select id="u_id" name="u_id" form="createForm">
+  <option value="1">testuser1</option>
+  <option value="2">testuser2</option>
+</select>
+<br>
+product:
+<select id="productid" name="productid" form="createForm">
+  <option value="2">nintenPi</option>
+  <option value="1">customPi</option>
+</select>
+ quantity:
+ <input type="number" name="quantity" id="quantity" value="1" maxlength="9">
+ <input type="submit" value="Save changes" >
+</form></div>
+
+
 </div>
 
 
