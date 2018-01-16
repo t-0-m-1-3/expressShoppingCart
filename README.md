@@ -9,6 +9,10 @@ _download from Here_
 git clone https://github.com/t-0-m-1-3/expressShoppingCart.git 
 cd && npm init && nodemon
 ```
+_play with it on Heroku_
+---
+[heroku deployment](https://whispering-fortress-17607.herokuapp.com/)
+
 ### Requirements
 
 To run the repository locally you'll need to clone the repo and have `node` and `npm` installed.
@@ -76,17 +80,16 @@ From there they will checkout and the stripe API test will run.
 ---
 ### Credits
 ---
-I need to thank both the `#heroku` and `#stripe` *IRC* channels for
-   their support. 
+I need to thank the `#postgres`, `#heroku`, and `#stripe` *IRC* channels for their support.  
 
-[ stripe documentation](https://stripe.com/docs/checkout/express)
+[stripe documentation](https://stripe.com/docs/checkout/express)
 [mozilla express tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
 [w3Schools RWD](https://www.w3schools.com/css/css_rwd_viewport.asp)
 [css media query
 examples](https://www.w3schools.com/css/css3_mediaqueries_ex.asp)
 [node and heroku deploy](https://www.youtube.com/watch?v=QT3_zT97_1g&t=76s)
 [buidling a simple CRUD app](https://zellwk.com/blog/crud-express-mongodb/)
-[ pg-promise password auth ](https://github.com/strongloop/loopback-connector-postgresql/issues/138)
+[pg-promise password auth ](https://github.com/strongloop/loopback-connector-postgresql/issues/138)
 [express working with
 forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
 [dan dumitrache's nodejs
@@ -109,15 +112,44 @@ error](https://github.com/parse-community/parse-server/issues/1589)
 ---
 
 ``` 
-
+find /views/ -type f -iname '*.ejs' -exec bash -c "./node_modules/.bin/ejslint '{}'" \;
 
 ```
-
+**This Snippet** blew my mind, I was really ready to give up on
+`ejs-lint` as a way to look for any issues but after re-reading the
+stack overflow post on this I got it working. I really want to take
+another look at grunt and having this run with `nodemon`
 ---
 
 ```
+ordersController.charge = (req,res) => {
+
+     let amount = 500;
+ console.log(req.body);
+  stripe.customers.create({
+     email: req.body.stripeEmail,
+    source: req.body.stripeToken,
+  })
+  .then(customer =>
+    stripe.charges.create({
+      amount,
+      description: "Sample Charge",
+         currency: "usd",
+         customer: customer.id
+    }))
+  .then(charge => res.render('orders/charge'));
+             // })
+             // .catch(err => {
+             // res.status(400).json(err);
+             // })
+};
+
 
 ```
+
+**This Snippet** I love because I was really unable to get any of the
+code to run with any combination of those 4 lines uncommented. But I was
+able to find all my `create` errors for `charges` and `customer`
 ---
 
 

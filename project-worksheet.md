@@ -209,7 +209,7 @@ this is e.query:
 <br>
 **Errorr**: Orders table stuck to left side.
 
-**RESOLUTION**: In Process
+**RESOLUTION**: Shrunk table to fit inside of `.aside` for media query
 <br>
 **Error**:
 ```
@@ -217,7 +217,7 @@ GET /orders?quantUpdate=1 200 21.793 ms - 11374
 GET /stylesheets/stylesheets.css 304 1.448 ms - -
 GET /orders/edit/29?quantUpdate=1 404 1.256 ms - 9
 ```
-**RESOLUTION**: In Process
+**RESOLUTION**: changed the action to reflect the route, edited controller
 <br>
 **ERROR**:
 ```
@@ -230,7 +230,7 @@ are deprecated. In the future, promise rejections that are not handled
 will terminate the Node.js process with a non-zero exit code.
 GET /orders/edit/orders/21 404 2.439 ms - 9
 ```
-**RESOLUTION**:In Process
+**RESOLUTION**: `ejs-lint` found an html tag that wasn't closed. 
 <br>
 **ERROR**:
 ```
@@ -242,4 +242,14 @@ TypeError: Cannot read property 'create' of undefined
 
 ```
 
-**RESOLUTION**: In Process
+**RESOLUTION**: create property was defined in server.js and not controller
+<br>
+**ERROR**: heroku cannot find package.json
+**RESOLUTION**: moved files from one directory back to where `.git` was
+<br>
+**ERROR**: heroku invalid connection details
+**RESOLUTION**: needed to enable postgres add on in heroku
+<br>
+**ERROR**: stripe key's work in `.js` test files but not in `.env`
+**RESOLUTION**: both`#stripe` and `#heroku` said conflicting fixes. put
+public key in form.
