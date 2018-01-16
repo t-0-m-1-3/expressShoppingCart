@@ -7,7 +7,7 @@ _download from Here_
 
 ```
 git clone https://github.com/t-0-m-1-3/expressShoppingCart.git 
-cd && npm init && nodemon
+cd expressShoppingCart && npm init && nodemon
 ```
 _play with it on Heroku_
 ---
@@ -83,27 +83,41 @@ From there they will checkout and the stripe API test will run.
 I need to thank the `#postgres`, `#heroku`, and `#stripe` *IRC* channels for their support.  
 
 [stripe documentation](https://stripe.com/docs/checkout/express)
+
 [mozilla express tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
+
 [w3Schools RWD](https://www.w3schools.com/css/css_rwd_viewport.asp)
+
 [css media query
 examples](https://www.w3schools.com/css/css3_mediaqueries_ex.asp)
+
 [node and heroku deploy](https://www.youtube.com/watch?v=QT3_zT97_1g&t=76s)
+
 [buidling a simple CRUD app](https://zellwk.com/blog/crud-express-mongodb/)
+
 [pg-promise password auth ](https://github.com/strongloop/loopback-connector-postgresql/issues/138)
+
 [express working with
 forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+
 [dan dumitrache's nodejs
 sections](http://dan.saigon.ro/category/node-js/)
+
 [stack overflow sending patch and delete with
 a form](https://stackoverflow.com/questions/38112722/nodejs-how-to-use-html-form-to-send-patch-delete-request)
+
 [pagination
 articles](https://evdokimovm.github.io/javascript/nodejs/mongodb/pagination/expressjs/ejs/bootstrap/2017/08/20/create-pagination-with-nodejs-mongodb-express-and-ejs-step-by-step-from-scratch.html)
+
 [how to use ejs-lint on the command
 line](https://stackoverflow.com/questions/48140310/how-to-use-ejs-lint-in-cli)
+
 [stripe type error
 create](https://github.com/airbnb/react-dates/issues/845)
+
 [heroku package.json not
 detected](https://github.com/heroku/heroku-buildpack-nodejs/issues/11)
+
 [heroku get
 error](https://github.com/parse-community/parse-server/issues/1589)
 

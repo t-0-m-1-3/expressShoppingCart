@@ -107,12 +107,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| express layout (MVC)  | H | 10hrs| 9hrs | -hrs |
-| `order.js`   | H | 6hrs| 24.5 | --hrs |
-| ` products.js`   | H | 6hrs| 1.5 | --hrs |
-| `shoppingCart.db`| H | 5hrs| 4hrs | -hrs |
-| API: Stripe | H | 4hrs| 1hrs | --hrs |
-| CSS Page | M | 6hrs| 3.2hrs | --hrs |
+| express layout (MVC)  | H | 10hrs| 20hrs | 20hrs |
+| `order.js`   | H | 6hrs| 55.0 | 55hrs |
+| ` products.js`   | H | 6hrs| 1.5 | 1.5hrs |
+| `shoppingCart.db`| H | 5hrs| 9hrs | 9hrs |
+| API: Stripe | H | 4hrs| 3hrs | 3hrs |
+| CSS Page | M | 6hrs| 5hrs | 5hrs |
 | AUTH  | L | 3hrs| --hrs | --hrs |
 | login Page | L | 1hrs| --hrs | --hrs |
 | `MarketBasket.sql` | L | 3hrs| --hrs | --hrs |
@@ -245,11 +245,14 @@ TypeError: Cannot read property 'create' of undefined
 **RESOLUTION**: create property was defined in server.js and not controller
 <br>
 **ERROR**: heroku cannot find package.json
+<br>
 **RESOLUTION**: moved files from one directory back to where `.git` was
 <br>
 **ERROR**: heroku invalid connection details
+
 **RESOLUTION**: needed to enable postgres add on in heroku
 <br>
 **ERROR**: stripe key's work in `.js` test files but not in `.env`
+
 **RESOLUTION**: both`#stripe` and `#heroku` said conflicting fixes. put
 public key in form.
