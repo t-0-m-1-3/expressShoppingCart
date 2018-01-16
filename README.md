@@ -6,14 +6,10 @@ This simple shopping cart is designed to demonstrate templating in EJS, CRUD ope
 _download from Here_ 
 
 ```
-git clone 
+git clone https://github.com/t-0-m-1-3/expressShoppingCart.git 
 cd && npm init && nodemon
 ```
-### OR
-* run through [codepen](www.codepen.com)
-
 ### Requirements
-To run the demo on codepen, you don't need anything except a modern browser 
 
 To run the repository locally you'll need to clone the repo and have `node` and `npm` installed.
 
@@ -63,24 +59,67 @@ From there they will checkout and the stripe API test will run.
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
-1. express 
-2. morgan
-3. path
-4. body-parser or muter
-5. method-override
-6. pg-promise
-7. nodemon
-8. stripe 
-
+1. express: runs the server under an MVC model 
+2. morgan: logger to help with debugging
+3. path; for interacting with filesystem.
+4. body-parser; for maniupulating form datr
+5. method-override; for allowing forms to override their default behavior
+6. pg-promise: promise library for handling async database requrests in
+   psql
+7. nodemon; used for automatically restarting the server after a file changes. 
+8. stripe: used for checkout button and credit card transactions.
+9. dotenv: used to interact with the `.env` file.
+10. EJS: tempalting engine used for rendering the html views.
+11. ejs-lint: increased the logs ability to track down syntax errors.
 
 ## Credits (code snippets and refereces)
 ---
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
+### Credits
+---
+I need to thank both the `#heroku` and `#stripe` *IRC* channels for
+   their support. 
+
+[ stripe documentation](https://stripe.com/docs/checkout/express)
+[mozilla express tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
+[w3Schools RWD](https://www.w3schools.com/css/css_rwd_viewport.asp)
+[css media query
+examples](https://www.w3schools.com/css/css3_mediaqueries_ex.asp)
+[node and heroku deploy](https://www.youtube.com/watch?v=QT3_zT97_1g&t=76s)
+[buidling a simple CRUD app](https://zellwk.com/blog/crud-express-mongodb/)
+[ pg-promise password auth ](https://github.com/strongloop/loopback-connector-postgresql/issues/138)
+[express working with
+forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+[dan dumitrache's nodejs
+sections](http://dan.saigon.ro/category/node-js/)
+[stack overflow sending patch and delete with
+a form](https://stackoverflow.com/questions/38112722/nodejs-how-to-use-html-form-to-send-patch-delete-request)
+[pagination
+articles](https://evdokimovm.github.io/javascript/nodejs/mongodb/pagination/expressjs/ejs/bootstrap/2017/08/20/create-pagination-with-nodejs-mongodb-express-and-ejs-step-by-step-from-scratch.html)
+[how to use ejs-lint on the command
+line](https://stackoverflow.com/questions/48140310/how-to-use-ejs-lint-in-cli)
+[stripe type error
+create](https://github.com/airbnb/react-dates/issues/845)
+[heroku package.json not
+detected](https://github.com/heroku/heroku-buildpack-nodejs/issues/11)
+[heroku get
+error](https://github.com/parse-community/parse-server/issues/1589)
+
+
+### Snippets
+---
+
+``` 
+
+
+```
+
+---
+
+```
+
+```
+---
+
 
 ## Contributing
 If you'd like to contribute to the repository, first `clone` the repo
