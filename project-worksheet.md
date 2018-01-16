@@ -139,18 +139,61 @@ Helper functions should be generic enought that they can be reused in other appl
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
-1. express 
-2. morgan
-3. path
-4. body-parser or muter
-5. method-override
-6. pg-promise
-7. nodemon
-8. stripe 
+1. express: runs the server under an MVC model 
+2. morgan: logger to help with debugging
+3. path; for interacting with filesystem.
+4. body-parser; for maniupulating form datr
+5. method-override; for allowing forms to override their default behavior
+6. pg-promise: promise library for handling async database requrests in
+   psql
+7. nodemon; used for automatically restarting the server after a file changes. 
+8. stripe: used for checkout button and credit card transactions.
+9. dotenv: used to interact with the `.env` file.
+10. EJS: tempalting engine used for rendering the html views.
+11. ejs-lint: increased the logs ability to track down syntax errors.
 
 ## Code Snippet
+``` 
+find /views/ -type f -iname '*.ejs' -exec bash -c "./node_modules/.bin/ejslint '{}'" \;
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  
+```
+**This Snippet** blew my mind, I was really ready to give up on
+`ejs-lint` as a way to look for any issues but after re-reading the
+stack overflow post on this I got it working. I really want to take
+another look at grunt and having this run with `nodemon`
+---
+
+```
+ordersController.charge = (req,res) => {
+
+     let amount = 500;
+ console.log(req.body);
+  stripe.customers.create({
+     email: req.body.stripeEmail,
+    source: req.body.stripeToken,
+  })
+  .then(customer =>
+    stripe.charges.create({
+      amount,
+      description: "Sample Charge",
+         currency: "usd",
+         customer: customer.id
+    }))
+  .then(charge => res.render('orders/charge'));
+             // })
+             // .catch(err => {
+             // res.status(400).json(err);
+             // })
+};
+
+
+```
+
+**This Snippet** I love because I was really unable to get any of the
+code to run with any combination of those 4 lines uncommented. But I was
+able to find all my `create` errors for `charges` and `customer`
+---
+
 
 ## jQuery Discoveries
  Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.
