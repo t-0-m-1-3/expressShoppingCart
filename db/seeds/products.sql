@@ -6,7 +6,7 @@
  */
 
 
-\c shoppingcart
+/* \c shoppingcart */
 INSERT INTO products ( name, price, quantity, prodImg) VALUES
   (
     'customPI',
